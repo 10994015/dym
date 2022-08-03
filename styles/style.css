@@ -107,4 +107,224 @@ nav#nav > a {
 nav#nav > a:hover {
   background-color: #FFD700;
 }
+
+#login {
+  width: 100%;
+  height: calc(100vh - 150px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-image: url("../images/loginbg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#login > h1 {
+  margin-bottom: 20px;
+  font-size: 50px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  border-bottom: 5px #fff solid;
+}
+
+#login > form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 350px;
+  color: #CBC080;
+}
+
+@media screen and (max-width: 350px) {
+  #login > form {
+    width: 95%;
+  }
+}
+
+#login > form > img {
+  width: 400px;
+}
+
+@media screen and (max-width: 400px) {
+  #login > form > img {
+    width: 95%;
+  }
+}
+
+#login > form > p {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  color: #bbb;
+  margin-bottom: 10px;
+}
+
+#login > form > input {
+  width: 100%;
+  height: 40px;
+  border: 1px #fff solid;
+  border-radius: 25px;
+  background-color: transparent;
+  outline: none;
+  margin: 8px 0;
+  padding: 0 10px;
+  color: #fff;
+  font-size: 16px;
+}
+
+#login > form > .link {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 0;
+}
+
+#login > form > .link > .registerlink {
+  color: #CBC080;
+  font-weight: 600;
+}
+
+#login > form > .link > #forgettext {
+  color: #CBC080;
+}
+
+#login > form > .submit-btn {
+  color: #121212;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 30px;
+  width: 200px;
+  cursor: pointer;
+  border: none;
+  background: -webkit-gradient(linear, left top, right top, from(#CBC080), color-stop(#CBC080), color-stop(#E7D2A3), to(#CBC080));
+  background: linear-gradient(to right, #CBC080, #CBC080, #E7D2A3, #CBC080);
+  height: 50px;
+}
+
+#login > form > .error {
+  color: #f00;
+}
+
+#register {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: url("../images/bg7.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 120px 0;
+}
+
+#register .regtitle {
+  margin-bottom: 20px;
+  width: 250px;
+}
+
+#register > form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 350px;
+}
+
+@media screen and (max-width: 350px) {
+  #register > form {
+    width: 95%;
+  }
+}
+
+#register > form > p {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  color: #bbb;
+  margin-bottom: 10px;
+}
+
+#register > form > input {
+  width: 100%;
+  height: 40px;
+  border: 1px #CBC080 solid;
+  background-color: transparent;
+  outline: none;
+  margin: 8px 0;
+  padding: 0 10px;
+  color: #CBC080;
+  font-size: 16px;
+  border-radius: 18px;
+}
+
+#register > form > div {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+#register > form > .chkcodeimg {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin: 15px 0 8px 0;
+}
+
+#register > form > .re-chkcode {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  color: #CBC080;
+}
+
+#register > form > .submit-btn {
+  color: #CBC080;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  height: 50px;
+  border-radius: 25px;
+}
+
+#register > form > .submit-btn:hover {
+  background-color: #121211;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
 /*# sourceMappingURL=style.css.map */
