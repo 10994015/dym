@@ -38,34 +38,54 @@ if(isset($_GET['code'])){
     <?php include_once('../shared/header.php'); ?>
     <div id="register">
         <!-- <h1>REGISTER</h1> -->
-        <img src="../images/reg.png" class="regtitle">
+        <img src="../images/addmember.png" class="regtitle">
         <form method="post" action="../function/mem_addmem_ok.php" class="mem-addmem-area">
             <p>建立您的DYM帳號</p>
-            <input type="text" name="username" class="username" 
-                placeholder="請輸入帳號..." required>
-                <div class="msg_username"></div>
-            <input type="text" name="mem_mail" class="mem_mail" 
-                placeholder="請輸入手機號碼..." required>
+            <label for="">
+                <span>帳號:</span><input type="text" name="username" class="username" 
+                placeholder="請輸入帳號..." required></label>
+            <div class="msg_username"></div>
+            <label for="">
+                <span>手機號碼:</span>
+                <input type="text" name="mem_mail" class="mem_mail" 
+                    placeholder="請輸入手機號碼..." required>
+            </label>
                 <div class="msg_mail"></div>
-
-            <input type="text" name="mem_name" class="mem_name" 
-                placeholder="請輸入真實姓名..." required>
-
-            <input type="password" name="mem_pwd" class="mem_pwd" 
-                placeholder="請輸入密碼 (6~20個英數字或符號)...." required>
+            <label for="">
+                <span>玩家名稱:</span>
+                <input type="text" name="mem_name" class="mem_name" 
+                    placeholder="請輸入真實姓名..." required>
+            </label>
+           <label for="">
+               <span>登入密碼:</span>
+                <input type="password" name="mem_pwd" class="mem_pwd" 
+                    placeholder="請輸入密碼 (6~20個英數字或符號)" required>
+           </label>
                 <div class="msg_pwd"></div>
-
-            <input type="password" name="confirm_pwd" class="confirm_pwd" 
-                placeholder="請再一次輸入相同密碼" required>
+            <label for="">
+                <span>確認密碼:</span>
+                <input type="password" name="confirm_pwd" class="confirm_pwd" 
+                    placeholder="請再一次輸入相同密碼" required>
+            </label>
                 <div class="msg_confirm_pwd"></div>
-
-            <input type="text" name="chkcode" class="chkcode" 
-                placeholder="請輸入 0～9 的驗證碼" required>
+            <label for="">
+                <span class="line">LINE ID:</span>
+                <input type="text" name="mem_line" class="line" 
+                    placeholder="請輸入LINE ID(選填)" >
+            </label>
+            <label for="">
+                <span>驗證碼:</span>
+                <input type="text" name="chkcode" class="chkcode" 
+                    placeholder="請輸入驗證碼" required>
+                    <div class="codeDiv">
+                    <img src="../function/chkcode_img_create.php" class="chkcodeimg" alt="">
+                    <a href="javascript:;" class="re-chkcode">重新顯示驗證碼</a>
+                    </div>
+            </label>
                 <div class="msg_chkcode"></div>  
-
+                
             <!-- 顯示驗證碼圖片 -->
-            <img src="../function/chkcode_img_create.php" class="chkcodeimg" alt="">
-            <a href="javascript:;" class="re-chkcode">重新顯示驗證碼</a>
+           
 
 
             <input type="submit" class="submit-btn" value="註冊" />
@@ -75,5 +95,13 @@ if(isset($_GET['code'])){
             <!-- 以下是負責各欄位即時檢驗後顯示訊息的區域 -->
         </form>
     </div>
+<style>
+    .mem-addmem-area div { text-align: left; color: red; letter-spacing: 0; font-size: 15px; font-weight: 600;}
+    .str1, .str0 { display: inline-block; width: 20px; height: 10px; margin-right:3px; }
+    .str1 { background-color: #CBC080; }
+    .str0 { background-color: lightgray; } 
+</style>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script src="../js/check_mem_register.js"></script>
 </body>
 </html>

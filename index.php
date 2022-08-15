@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DYM</title>
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
     <header id="header">
@@ -23,7 +24,7 @@
     <nav id="nav">
         <a href="javascript:;">遊戲大廳</a>
         <a href="javascript:;">真人視訊</a>
-        <a href="javascript:;">飛機競速</a>
+        <a href="./web/airplane.php">飛機競速</a>
         <a href="javascript:;">體育賽事</a>
         <a href="javascript:;">優惠活動</a>
     </nav>

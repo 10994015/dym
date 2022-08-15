@@ -21,7 +21,7 @@ $(document).ready(function(){
     var msg_chkcode      = $('.msg_chkcode');
   
     //變數設定為 msg 顯示時輔助的設定--------------------------------------
-    var msg_blue_start   = '<span style="color:blue">';
+    var msg_blue_start   = '<span style="color:#FFE850">';
     var msg_blue_end     = '</span>';
     var m1               = '<span class="str1"></span>';
     var m0               = '<span class="str0"></span>';

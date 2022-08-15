@@ -244,11 +244,11 @@ nav#nav > a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: url("../images/bg7.png");
+  background-image: url("../images/registerbg.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 120px 0;
+  padding: 40px 0;
 }
 
 #register .regtitle {
@@ -267,7 +267,7 @@ nav#nav > a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 350px;
+  width: 400px;
 }
 
 @media screen and (max-width: 350px) {
@@ -283,7 +283,35 @@ nav#nav > a:hover {
   margin-bottom: 10px;
 }
 
-#register > form > input {
+#register > form > label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+#register > form > label > span {
+  color: #CBC080;
+  min-width: 80px;
+  margin-right: 6px;
+}
+
+#register > form > label > span::before {
+  content: "*";
+  color: #f00;
+}
+
+#register > form > label > span.line::before {
+  content: "";
+}
+
+#register > form > label input {
   width: 100%;
   height: 40px;
   border: 1px #CBC080 solid;
@@ -296,35 +324,308 @@ nav#nav > a:hover {
   border-radius: 18px;
 }
 
+#register > form > label > .codeDiv {
+  min-width: 130px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#register > form > label > .codeDiv > .chkcodeimg {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin: 15px 0 8px 0;
+}
+
+#register > form > label > .codeDiv > .re-chkcode {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  color: #CBC080;
+}
+
+#register > form > label > .chkcode {
+  width: 70%;
+}
+
 #register > form > div {
   -ms-flex-item-align: start;
       align-self: flex-start;
 }
 
-#register > form > .chkcodeimg {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-  margin: 15px 0 8px 0;
-}
-
-#register > form > .re-chkcode {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-  color: #CBC080;
-}
-
 #register > form > .submit-btn {
-  color: #CBC080;
+  color: #121121;
+  background-color: #CBC080;
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
   height: 50px;
   border-radius: 25px;
+  width: 100%;
+  margin-top: 10px;
 }
 
 #register > form > .submit-btn:hover {
-  background-color: #121211;
+  background-color: #ccc;
   -webkit-transition: .5s;
   transition: .5s;
+}
+
+#airplane {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../images/airplane/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#airplane > .header {
+  width: 100%;
+  height: 80px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#06033A), color-stop(#492E9B), to(#06033A));
+  background-image: linear-gradient(to right, #06033A, #492E9B, #06033A);
+  border-bottom: 4px solid #fd0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 100px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#airplane > .header > .left {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#airplane > .header > .left > .userBox {
+  height: 80%;
+  position: relative;
+  margin-right: 20px;
+}
+
+#airplane > .header > .left > .userBox > img {
+  height: 100%;
+}
+
+#airplane > .header > .left > .userBox > h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #FFF;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+#airplane > .header > .left > .moneyBox {
+  height: 80%;
+  position: relative;
+}
+
+#airplane > .header > .left > .moneyBox > img {
+  height: 100%;
+}
+
+#airplane > .header > .left > .moneyBox > h3 {
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #FFF;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+#airplane > .header > .right {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#airplane > .header > .right > .fpsBox {
+  height: 70%;
+  position: relative;
+  margin-right: 20px;
+}
+
+#airplane > .header > .right > .fpsBox > img {
+  height: 100%;
+}
+
+#airplane > .header > .right > .fpsBox > h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #FFF;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+#airplane > .header > .right > i {
+  font-size: 45px;
+  cursor: pointer;
+  color: #E43FD1;
+}
+
+#airplane > .center {
+  width: 100%;
+  height: calc(100vh - 84px);
+  padding: 30px 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#airplane > .center > .playBox {
+  width: 450px;
+  height: auto;
+  position: relative;
+  margin: 0 20px;
+}
+
+#airplane > .center > .playBox > img.playBg {
+  width: 450px;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#airplane > .center > .playBox > .airplaneDiv {
+  position: absolute;
+  top: 28px;
+  left: 32px;
+  width: 387px;
+  height: 368px;
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+#airplane > .center > .betBox {
+  margin: 0 20px;
+  width: 600px;
+}
+
+#airplane > .center > .betBox > nav.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+#airplane > .center > .betBox > nav.nav > a {
+  width: 120px;
+  height: 45px;
+  display: block;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  line-height: 45px;
+  position: relative;
+  background-image: -webkit-gradient(linear, left top, right top, from(#1F1B68), color-stop(#352087), to(#1F1B68));
+  background-image: linear-gradient(to right, #1F1B68, #352087, #1F1B68);
+  border: 1px #24CCD5 solid;
+  border-bottom: 3px #FFDD00 solid;
+}
+
+#airplane > .center > .betBox > nav.nav > a.focus {
+  color: #000;
+  border: 1px #F4E91B solid;
+  background-image: -webkit-gradient(linear, left top, right top, from(#F4E91B), color-stop(#FCFBCF), to(#F4E91B));
+  background-image: linear-gradient(to right, #F4E91B, #FCFBCF, #F4E91B);
+}
+
+#airplane > .center > .betBox > .content {
+  width: 600px;
+  height: 490px;
+  border: 1px  #2baaca solid;
+  background: #000;
+}
+
+#airplane > .center > .betBox > .content > span.odds {
+  margin-top: 25px;
+  display: block;
+  width: 100%;
+  height: 35px;
+  color: #F7F9C7;
+  font-weight: 600;
+  text-align: center;
+  line-height: 35px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#490F3F), to(#004E4B));
+  background-image: linear-gradient(to right, #490F3F, #004E4B);
+}
+
+#airplane > .center > .betBox > .content > .rankBtnBox {
+  margin-top: 20px;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (100px)[5];
+      grid-template-columns: repeat(5, 100px);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-column-gap: 10px;
+  grid-row-gap: 1em;
+}
+
+#airplane > .center > .betBox > .content > .rankBtnBox > img {
+  width: 100%;
+  cursor: pointer;
+}
+
+#airplane > .center > .betBox > .content > .airplaneRankBox {
+  margin-top: 20px;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (90px)[5];
+      grid-template-columns: repeat(5, 90px);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-column-gap: 10px;
+  grid-row-gap: 5px;
+}
+
+#airplane > .center > .betBox > .content > .airplaneRankBox > div.rank {
+  width: 100%;
+  position: relative;
+}
+
+#airplane > .center > .betBox > .content > .airplaneRankBox > div.rank > .medal {
+  width: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#airplane > .center > .betBox > .content > .airplaneRankBox > div.rank > .air {
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

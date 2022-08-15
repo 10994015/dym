@@ -1,3 +1,5 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <header id="header">
     <a href="./" class="logo"><img src="../images/logo.png" class="logo"></a>
     <div class="left">
@@ -13,7 +15,7 @@
 <nav id="nav">
     <a href="javascript:;">遊戲大廳</a>
     <a href="javascript:;">真人視訊</a>
-    <a href="javascript:;">飛機競速</a>
+    <a href="./airplane.php">飛機競速</a>
     <a href="javascript:;">體育賽事</a>
     <a href="javascript:;">優惠活動</a>
 </nav>
