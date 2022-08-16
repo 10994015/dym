@@ -39,8 +39,14 @@ $myMoney = $_SESSION['money'];
         <div class="center">
             <div class="playBox">
                 <img src="../images/airplane/playbg.png" class="playBg">
-                <div class="airplaneDiv">
-
+                <div class="airplaneDiv" id="airplaneDiv">
+                    <?php for($i=1;$i<=10;$i++){ ?>
+                    <div class="air">
+                        <img src="../images/airplane/air<?php echo $i?>.png" class="airImg">
+                    </div>
+                    <?php } ?>
+                </div>
+                <div class="airRnakList" id="airRnakList">
                 </div>
             </div>
             <div class="betBox">
@@ -60,7 +66,7 @@ $myMoney = $_SESSION['money'];
                     </div>
                     <div class="airplaneRankBox">
                         <?php for($i=1;$i<=10;$i++){ ?>
-                        <div class="rank no<?php echo $i; ?>">
+                        <div class="rank no<?php echo $i; ?>" id="airRank">
                             <img src="../images/airplane/medal<?php echo $i; ?>.png" class="medal">
                             <img src="../images/airplane/air<?php echo $i; ?>.png" class="air">
                         </div>
@@ -68,8 +74,29 @@ $myMoney = $_SESSION['money'];
                     </div>
                 </div>
             </div>
+            <div class="betList">
+                <img src="../images/airplane/betList.png" class="betListBg">
+                <p class="betText">SR17082208161906</p>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="diamondBox" id="diamondBox">
+                <img src="../images/airplane/diamond10.png" alt="10" class="diamondBtn">
+                <img src="../images/airplane/diamond50.png" alt="50" class="diamondBtn">
+                <img src="../images/airplane/diamond100.png" alt="100" class="diamondBtn">
+                <img src="../images/airplane/diamond500.png" alt="500" class="diamondBtn">
+            </div>
+            <div class="perbetBox">
+                <img src="../images/airplane/perbet.png">
+                <p class="dollar" id="dollar">0</p>
+            </div>
+            <div class="btnBox">
+                <img src="../images/airplane/duble.png" id="doubleBtn">
+                <img src="../images/airplane/re.png" id="reBtn">
+                <img src="../images/airplane/chk.png" id="chkBtn">
+            </div>
         </div>
     </div>
-
+<script src="../js/airplane.js"></script>
 </body>
 </html>

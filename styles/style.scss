@@ -77,6 +77,15 @@ nav#nav{
     }
 }
 
+#index{
+    background-image: url('../images/indexBg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width:100%;
+    height: 581px;
+    
+}
 
 #login{
     width:100%;
@@ -263,11 +272,13 @@ nav#nav{
 
 #airplane{
     width:100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     background-image:url('../images/airplane/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    padding-bottom:  50px;
     >.header{
         width:100%;
         height: 80px;
@@ -343,7 +354,7 @@ nav#nav{
     }
     >.center{
         width:100%;
-        height: calc(100vh - 84px);
+        height: auto;
         padding: 30px 50px;
         display: flex;
         justify-content: center;
@@ -362,13 +373,116 @@ nav#nav{
             }
             >.airplaneDiv{
                 position: absolute;
-                top: 28px;
-                left:32px;
-                width:387px;
+                top: 27px;
+                left:30px;
+                width:389px;
                 // width:85%;
-                height: 368px;
+                height: 370px;
+                display: flex;
+                align-items: flex-end;
                 // height: 64%;
+                overflow: hidden;
+                // background-color: rgba(255,0,0,.5);
+                background-color: transparent;
+                >.air{
+                    width:38px;
+                    transform: translateY(60px);
+                    // transform: translateY(-320px);
+                    // transform: translateY(-150px);
+                    >img.airImg{
+                        width:60px;
+                    }
+                    &.air1{
+                        animation: airNo1 8.2s linear;
+                    }
+                    &.air2{
+                        animation: airNo1 11s linear;
+                    }
+                    &.air3{
+                        animation: airNo1 9s linear;
+                    }
+                    &.air4{
+                        animation: airNo1 8.5s linear;
+                    }
+                    &.air5{
+                        animation: airNo1 7.7s linear;
+                    }
+                    &.air6{
+                        animation: airNo1 10s linear;
+                    }
+                    &.air7{
+                        animation: airNo1 10.5s linear;
+                    }
+                    &.air8{
+                        animation: airNo1 8s linear;
+                    }
+
+                    &.air9{
+                        animation: airNo1 8.9s linear;
+                    }
+                    &.air10{
+                        animation: airNo1 10.9s linear;
+                    }
+                    @keyframes airNo1 {
+                        0%{
+                            transform: translateY(60px);
+                        }
+                        10%{
+                            transform: translateY(-50px);
+                        }
+                        20%{
+                            transform: translateY(-190px);
+                        }
+                        30%{
+                            transform: translateY(-130px);
+                        }
+                        40%{
+                            transform: translateY(-210px);
+                        }
+                        50%{
+                            transform: translateY(-140px);
+                        }
+                        60%{
+                            transform: translateY(-190px);
+                        }
+                        70%{
+                            transform: translateY(-110px);
+                        }
+                        80%{
+                            transform: translateY(-200px);
+                        }
+                        90%{
+                            transform: translateY(-130px);
+                        }
+                        100%{
+                            transform: translateY(-380px);
+                        }
+                    }
+                    
+                }
+            }
+            >.airRnakList{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                bottom:0;
+                left:0;
+                width:400px;
+                height: 60px;
                 background-color: rgba(255,0,0,.5);
+                >p{
+                    color:#fff;
+                    margin:0 10px;
+                    font-weight: 600;
+                    font-size: 18px;
+                    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                    @for $i from 1 through 10{
+                        &.p#{$i}{
+                            order: $i;
+                        }
+                    }
+                }
             }
         }
         >.betBox{
@@ -402,7 +516,7 @@ nav#nav{
             }
             >.content{
                 width: 600px;
-                height: 490px;
+                height:490px;
                 border:1px  #2baaca solid;
                 background: #000;
                 >span.odds{
@@ -452,6 +566,72 @@ nav#nav{
                     }
                 }
                 // background: linear-gradient(-60deg, transparent 35px, #000 0);
+            }
+        }
+        >.betList{
+            margin:0 20px;
+            width: 252px;
+            position: relative;
+            >img{
+                width:252px;
+                position: absolute;
+                top:0;
+                left:0;
+            }
+            >p.betText{
+                position: absolute;
+                top: 84px;
+                left:80px;
+                color:#fff;
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                font-size: 14px;
+            }
+        }
+    }
+    >.bottom{
+        width:100%;
+        display: flex;
+        justify-content: center;
+        >.diamondBox{
+            display: flex;
+            margin:0 20px;
+            justify-content: center;
+            >img{
+                width:100px;
+                margin:0 5px;
+                cursor: pointer;
+            }
+        }
+        >.perbetBox{
+            width:200px;
+            margin:0 20px;
+            position: relative;
+            >img{
+                position: absolute;
+                top: 0;
+                left:0;
+                width:200px;
+            }
+            >.dollar{
+                position: absolute;
+                top:52%;
+                left:50%;
+                color:#fff;
+                font-size: 18px;
+                font-weight: 600;
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                transform: translate(-50%,-50%);
+            }
+        }
+        >.btnBox{
+            width:auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin:0 20px;
+            >img{
+                width:180px;
+                cursor: pointer;
             }
         }
     }

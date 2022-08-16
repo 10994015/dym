@@ -108,6 +108,15 @@ nav#nav > a:hover {
   background-color: #FFD700;
 }
 
+#index {
+  background-image: url("../images/indexBg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 581px;
+}
+
 #login {
   width: 100%;
   height: calc(100vh - 150px);
@@ -376,11 +385,13 @@ nav#nav > a:hover {
 
 #airplane {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   background-image: url("../images/airplane/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  padding-bottom: 50px;
 }
 
 #airplane > .header {
@@ -488,7 +499,7 @@ nav#nav > a:hover {
 
 #airplane > .center {
   width: 100%;
-  height: calc(100vh - 84px);
+  height: auto;
   padding: 30px 50px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -517,11 +528,258 @@ nav#nav > a:hover {
 
 #airplane > .center > .playBox > .airplaneDiv {
   position: absolute;
-  top: 28px;
-  left: 32px;
-  width: 387px;
-  height: 368px;
+  top: 27px;
+  left: 30px;
+  width: 389px;
+  height: 370px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+#airplane > .center > .playBox > .airplaneDiv > .air {
+  width: 38px;
+  -webkit-transform: translateY(60px);
+          transform: translateY(60px);
+}
+
+#airplane > .center > .playBox > .airplaneDiv > .air > img.airImg {
+  width: 60px;
+}
+
+#airplane > .center > .playBox > .airplaneDiv > .air.air1 {
+  -webkit-animation: airNo1 8.2s linear;
+          animation: airNo1 8.2s linear;
+}
+
+#airplane > .center > .playBox > .airplaneDiv > .air.air2 {
+  -webkit-animation: airNo1 11s linear;
+          animation: airNo1 11s linear;
+}
+
+#airplane > .center > .playBox > .airplaneDiv > .air.air3 {
+  -webkit-animation: airNo1 9s linear;
+          animation: airNo1 9s linear;
+}
+
+#airplane > .center > .playBox > .airplaneDiv > .air.air4 {
+  -webkit-animation: airNo1 8.5s linear;
+          animation: airNo1 8.5s linear;
+}
+
+#airplane > .center > .playBox > .airplaneDiv > .air.air5 {
+  -webkit-animation: airNo1 7.7s linear;
+          animation: airNo1 7.7s linear;
+}
+
+#airplane > .center > .playBox > .airplaneDiv > .air.air6 {
+  -webkit-animation: airNo1 10s linear;
+          animation: airNo1 10s linear;
+}
+
+#airplane > .center > .playBox > .airplaneDiv > .air.air7 {
+  -webkit-animation: airNo1 10.5s linear;
+          animation: airNo1 10.5s linear;
+}
+
+#airplane > .center > .playBox > .airplaneDiv > .air.air8 {
+  -webkit-animation: airNo1 8s linear;
+          animation: airNo1 8s linear;
+}
+
+#airplane > .center > .playBox > .airplaneDiv > .air.air9 {
+  -webkit-animation: airNo1 8.9s linear;
+          animation: airNo1 8.9s linear;
+}
+
+#airplane > .center > .playBox > .airplaneDiv > .air.air10 {
+  -webkit-animation: airNo1 10.9s linear;
+          animation: airNo1 10.9s linear;
+}
+
+@-webkit-keyframes airNo1 {
+  0% {
+    -webkit-transform: translateY(60px);
+            transform: translateY(60px);
+  }
+  10% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+  20% {
+    -webkit-transform: translateY(-190px);
+            transform: translateY(-190px);
+  }
+  30% {
+    -webkit-transform: translateY(-130px);
+            transform: translateY(-130px);
+  }
+  40% {
+    -webkit-transform: translateY(-210px);
+            transform: translateY(-210px);
+  }
+  50% {
+    -webkit-transform: translateY(-140px);
+            transform: translateY(-140px);
+  }
+  60% {
+    -webkit-transform: translateY(-190px);
+            transform: translateY(-190px);
+  }
+  70% {
+    -webkit-transform: translateY(-110px);
+            transform: translateY(-110px);
+  }
+  80% {
+    -webkit-transform: translateY(-200px);
+            transform: translateY(-200px);
+  }
+  90% {
+    -webkit-transform: translateY(-130px);
+            transform: translateY(-130px);
+  }
+  100% {
+    -webkit-transform: translateY(-380px);
+            transform: translateY(-380px);
+  }
+}
+
+@keyframes airNo1 {
+  0% {
+    -webkit-transform: translateY(60px);
+            transform: translateY(60px);
+  }
+  10% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+  20% {
+    -webkit-transform: translateY(-190px);
+            transform: translateY(-190px);
+  }
+  30% {
+    -webkit-transform: translateY(-130px);
+            transform: translateY(-130px);
+  }
+  40% {
+    -webkit-transform: translateY(-210px);
+            transform: translateY(-210px);
+  }
+  50% {
+    -webkit-transform: translateY(-140px);
+            transform: translateY(-140px);
+  }
+  60% {
+    -webkit-transform: translateY(-190px);
+            transform: translateY(-190px);
+  }
+  70% {
+    -webkit-transform: translateY(-110px);
+            transform: translateY(-110px);
+  }
+  80% {
+    -webkit-transform: translateY(-200px);
+            transform: translateY(-200px);
+  }
+  90% {
+    -webkit-transform: translateY(-130px);
+            transform: translateY(-130px);
+  }
+  100% {
+    -webkit-transform: translateY(-380px);
+            transform: translateY(-380px);
+  }
+}
+
+#airplane > .center > .playBox > .airRnakList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 400px;
+  height: 60px;
   background-color: rgba(255, 0, 0, 0.5);
+}
+
+#airplane > .center > .playBox > .airRnakList > p {
+  color: #fff;
+  margin: 0 10px;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+#airplane > .center > .playBox > .airRnakList > p.p1 {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+#airplane > .center > .playBox > .airRnakList > p.p2 {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+#airplane > .center > .playBox > .airRnakList > p.p3 {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+}
+
+#airplane > .center > .playBox > .airRnakList > p.p4 {
+  -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+          order: 4;
+}
+
+#airplane > .center > .playBox > .airRnakList > p.p5 {
+  -webkit-box-ordinal-group: 6;
+      -ms-flex-order: 5;
+          order: 5;
+}
+
+#airplane > .center > .playBox > .airRnakList > p.p6 {
+  -webkit-box-ordinal-group: 7;
+      -ms-flex-order: 6;
+          order: 6;
+}
+
+#airplane > .center > .playBox > .airRnakList > p.p7 {
+  -webkit-box-ordinal-group: 8;
+      -ms-flex-order: 7;
+          order: 7;
+}
+
+#airplane > .center > .playBox > .airRnakList > p.p8 {
+  -webkit-box-ordinal-group: 9;
+      -ms-flex-order: 8;
+          order: 8;
+}
+
+#airplane > .center > .playBox > .airRnakList > p.p9 {
+  -webkit-box-ordinal-group: 10;
+      -ms-flex-order: 9;
+          order: 9;
+}
+
+#airplane > .center > .playBox > .airRnakList > p.p10 {
+  -webkit-box-ordinal-group: 11;
+      -ms-flex-order: 10;
+          order: 10;
 }
 
 #airplane > .center > .betBox {
@@ -627,5 +885,97 @@ nav#nav > a:hover {
 
 #airplane > .center > .betBox > .content > .airplaneRankBox > div.rank > .air {
   width: 100%;
+}
+
+#airplane > .center > .betList {
+  margin: 0 20px;
+  width: 252px;
+  position: relative;
+}
+
+#airplane > .center > .betList > img {
+  width: 252px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#airplane > .center > .betList > p.betText {
+  position: absolute;
+  top: 84px;
+  left: 80px;
+  color: #fff;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+#airplane > .bottom {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#airplane > .bottom > .diamondBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#airplane > .bottom > .diamondBox > img {
+  width: 100px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+#airplane > .bottom > .perbetBox {
+  width: 200px;
+  margin: 0 20px;
+  position: relative;
+}
+
+#airplane > .bottom > .perbetBox > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+}
+
+#airplane > .bottom > .perbetBox > .dollar {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#airplane > .bottom > .btnBox {
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 20px;
+}
+
+#airplane > .bottom > .btnBox > img {
+  width: 180px;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

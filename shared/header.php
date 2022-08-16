@@ -1,7 +1,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <header id="header">
-    <a href="./" class="logo"><img src="../images/logo.png" class="logo"></a>
+    <a href="../" class="logo"><img src="../images/logo.png" class="logo"></a>
     <div class="left">
         <a href="./login.php" class="login">會員登入</a>
         <a href="./register.php" class="register">免費註冊</a>

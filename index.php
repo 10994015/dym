@@ -28,5 +28,7 @@
         <a href="javascript:;">體育賽事</a>
         <a href="javascript:;">優惠活動</a>
     </nav>
+    <div id="index">
+    </div>
 </body>
 </html>
