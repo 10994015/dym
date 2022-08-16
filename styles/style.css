@@ -544,12 +544,33 @@ nav#nav > a:hover {
 
 #airplane > .center > .playBox > .airplaneDiv > .air {
   width: 38px;
-  -webkit-transform: translateY(60px);
-          transform: translateY(60px);
+  -webkit-transform: translateY(-380px);
+          transform: translateY(-380px);
+  -webkit-transform: translateY(120px);
+          transform: translateY(120px);
+  -webkit-transform: translateY(340px);
+          transform: translateY(340px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #airplane > .center > .playBox > .airplaneDiv > .air > img.airImg {
   width: 60px;
+}
+
+#airplane > .center > .playBox > .airplaneDiv > .air > img.injection {
+  width: 10px;
 }
 
 #airplane > .center > .playBox > .airplaneDiv > .air.air1 {
@@ -604,44 +625,44 @@ nav#nav > a:hover {
 
 @-webkit-keyframes airNo1 {
   0% {
+    -webkit-transform: translateY(340px);
+            transform: translateY(340px);
+  }
+  10% {
     -webkit-transform: translateY(60px);
             transform: translateY(60px);
   }
-  10% {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
-  }
   20% {
-    -webkit-transform: translateY(-190px);
-            transform: translateY(-190px);
+    -webkit-transform: translateY(150px);
+            transform: translateY(150px);
   }
   30% {
-    -webkit-transform: translateY(-130px);
-            transform: translateY(-130px);
+    -webkit-transform: translateY(90px);
+            transform: translateY(90px);
   }
   40% {
-    -webkit-transform: translateY(-210px);
-            transform: translateY(-210px);
+    -webkit-transform: translateY(170px);
+            transform: translateY(170px);
   }
   50% {
-    -webkit-transform: translateY(-140px);
-            transform: translateY(-140px);
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
   }
   60% {
-    -webkit-transform: translateY(-190px);
-            transform: translateY(-190px);
+    -webkit-transform: translateY(150px);
+            transform: translateY(150px);
   }
   70% {
-    -webkit-transform: translateY(-110px);
-            transform: translateY(-110px);
+    -webkit-transform: translateY(70px);
+            transform: translateY(70px);
   }
   80% {
-    -webkit-transform: translateY(-200px);
-            transform: translateY(-200px);
+    -webkit-transform: translateY(160px);
+            transform: translateY(160px);
   }
   90% {
-    -webkit-transform: translateY(-130px);
-            transform: translateY(-130px);
+    -webkit-transform: translateY(90px);
+            transform: translateY(90px);
   }
   100% {
     -webkit-transform: translateY(-380px);
@@ -651,44 +672,44 @@ nav#nav > a:hover {
 
 @keyframes airNo1 {
   0% {
+    -webkit-transform: translateY(340px);
+            transform: translateY(340px);
+  }
+  10% {
     -webkit-transform: translateY(60px);
             transform: translateY(60px);
   }
-  10% {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
-  }
   20% {
-    -webkit-transform: translateY(-190px);
-            transform: translateY(-190px);
+    -webkit-transform: translateY(150px);
+            transform: translateY(150px);
   }
   30% {
-    -webkit-transform: translateY(-130px);
-            transform: translateY(-130px);
+    -webkit-transform: translateY(90px);
+            transform: translateY(90px);
   }
   40% {
-    -webkit-transform: translateY(-210px);
-            transform: translateY(-210px);
+    -webkit-transform: translateY(170px);
+            transform: translateY(170px);
   }
   50% {
-    -webkit-transform: translateY(-140px);
-            transform: translateY(-140px);
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
   }
   60% {
-    -webkit-transform: translateY(-190px);
-            transform: translateY(-190px);
+    -webkit-transform: translateY(150px);
+            transform: translateY(150px);
   }
   70% {
-    -webkit-transform: translateY(-110px);
-            transform: translateY(-110px);
+    -webkit-transform: translateY(70px);
+            transform: translateY(70px);
   }
   80% {
-    -webkit-transform: translateY(-200px);
-            transform: translateY(-200px);
+    -webkit-transform: translateY(160px);
+            transform: translateY(160px);
   }
   90% {
-    -webkit-transform: translateY(-130px);
-            transform: translateY(-130px);
+    -webkit-transform: translateY(90px);
+            transform: translateY(90px);
   }
   100% {
     -webkit-transform: translateY(-380px);

@@ -1,3 +1,7 @@
+<?php 
+require_once('./config/conn.php');
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
 <head>
@@ -12,8 +16,12 @@
     <header id="header">
         <a href="./" class="logo"><img src="./images/logo.png" class="logo"></a>
         <div class="left">
+            <?php if(!isset($_SESSION['name'])){ ?>
             <a href="./web/login.php" class="login">會員登入</a>
             <a href="./web/register.php" class="register">免費註冊</a>
+            <?php }else{ ?>
+            <a href="./web/logout.php" class="login">登出</a>
+            <?php } ?>
             <select name="" id="">
                 <option value=""> 
                     繁體中文

@@ -3,8 +3,9 @@ require_once('../config/conn.php');
 session_start();
 $myMoney = $_SESSION['money'];
 
-?>
 
+if(isset($_SESSION['name'])){
+?>
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
 <head>
@@ -17,6 +18,7 @@ $myMoney = $_SESSION['money'];
 </head>
 <body>
     <div id="airplane">
+        <input type="hidden" value="<?php echo $myMoney; ?>" id="myMoney">
         <div class="header">
            <div class="left">
             <div class="userBox">
@@ -25,7 +27,7 @@ $myMoney = $_SESSION['money'];
                 </div>
                 <div class="moneyBox">
                     <img src="../images/airplane/money.png">
-                    <h3><?php echo $myMoney; ?></h3>
+                    <h3 id="balance"><?php echo $myMoney; ?></h3>
                 </div>
            </div>
            <div class="right">
@@ -43,6 +45,7 @@ $myMoney = $_SESSION['money'];
                     <?php for($i=1;$i<=10;$i++){ ?>
                     <div class="air">
                         <img src="../images/airplane/air<?php echo $i?>.png" class="airImg">
+                        <img src="../images/airplane/injection.png" class="injection">
                     </div>
                     <?php } ?>
                 </div>
@@ -100,3 +103,8 @@ $myMoney = $_SESSION['money'];
 <script src="../js/airplane.js"></script>
 </body>
 </html>
+
+<?php } else{
+    header('Location:./error.php');
+}
+?>

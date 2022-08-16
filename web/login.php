@@ -1,6 +1,8 @@
 <?php 
 session_start();
 include_once('../config/conn.php');
+
+if(!isset($_SESSION['name'])){
 ?>
 
 <!DOCTYPE html>
@@ -32,3 +34,7 @@ include_once('../config/conn.php');
     </div>
 </body>
 </html>
+
+<?php }else{
+    header('Location:../');
+} ?>

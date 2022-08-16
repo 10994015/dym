@@ -24,6 +24,8 @@ if(isset($_GET['code'])){
         $upuser =  $row_RS['username'];
     }
 }
+
+if(!isset($_SESSION['name'])){
 ?>
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
@@ -105,3 +107,7 @@ if(isset($_GET['code'])){
 <script src="../js/check_mem_register.js"></script>
 </body>
 </html>
+
+<?php }else{
+    header('Location:../');
+} ?>

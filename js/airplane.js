@@ -7,6 +7,8 @@ const airRnakList = document.getElementById('airRnakList');
 const dollar = document.getElementById('dollar');
 const doubleBtn = document.getElementById('doubleBtn');
 const reBtn = document.getElementById('reBtn');
+const myMoney = document.getElementById('myMoney');
+const balance = document.getElementById('balance');
 let secondsArr = [
     [7.7,'1'],
     [8,'2'],
@@ -53,7 +55,12 @@ chkBtn.addEventListener('click',()=>{
 })
 
 const diamondFn = (e)=>{
+    if(myMoney.value<Number(e.target.alt)){
+        alert('您的餘額為不足，請先儲值')
+    }
     betMoney += Number(e.target.alt);
+    myMoney.value = Number(myMoney.value) - Number(e.target.alt);
+    balance.innerHTML = myMoney.value
     dollar.innerHTML = betMoney;
 }
 
@@ -62,10 +69,18 @@ for(let i=0;i<diamondBtn.length;i++){
 }
 
 doubleBtn.addEventListener('click',()=>{
+    if(myMoney.value <=betMoney ){
+        alert('您的餘額為不足，請先儲值')
+        return;
+    }
+    myMoney.value = Number(myMoney.value - betMoney);
     betMoney = betMoney*2;
+    balance.innerHTML = myMoney.value
     dollar.innerHTML = betMoney;
 })
 reBtn.addEventListener('click',()=>{
+    myMoney.value = Number(myMoney.value) + betMoney;
     betMoney = 0;
+    balance.innerHTML = myMoney.value
     dollar.innerHTML = betMoney;
 })
