@@ -54,13 +54,18 @@ if(isset($_SESSION['name'])){
             </div>
             <div class="betBox">
                 <nav class="nav">
-                    <a href="javascript:;" class="focus">定位膽</a>
+                    <img src="../images/airplane/btnchk1.png" id="gameBtn1" class="gameBtn">
+                    <img src="../images/airplane/btn2.png" id="gameBtn2" class="gameBtn">
+                    <img src="../images/airplane/btn3.png" id="gameBtn3" class="gameBtn">
+                    <img src="../images/airplane/btn4.png" id="gameBtn4" class="gameBtn">
+                    <img src="../images/airplane/btn5.png" id="gameBtn5" class="gameBtn">
+                    <!-- <a href="javascript:;" class="focus">定位膽</a>
                     <a href="javascript:;">冠亞二星</a>
                     <a href="javascript:;">大小單雙</a>
                     <a href="javascript:;">冠亞和</a>
-                    <a href="javascript:;">龍虎</a>
+                    <a href="javascript:;">龍虎</a> -->
                 </nav>
-                <div class="content">
+                <div class="content" id="game1">
                     <span class="odds">猜每一個名次的稱號 賠率9.8</span>
                     <div class="rankBtnBox">
                         <?php for($i=1;$i<=10;$i++){ ?>
@@ -76,6 +81,10 @@ if(isset($_SESSION['name'])){
                         <?php } ?>
                     </div>
                 </div>
+                <div class="content" id="game2"></div>
+                <div class="content" id="game3"></div>
+                <div class="content" id="game4"></div>
+                <div class="content" id="game5"></div>
             </div>
             <div class="betList">
                 <img src="../images/airplane/betList.png" class="betListBg">

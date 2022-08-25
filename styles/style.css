@@ -817,22 +817,15 @@ nav#nav > a:hover {
           justify-content: flex-start;
 }
 
-#airplane > .center > .betBox > nav.nav > a {
+#airplane > .center > .betBox > nav.nav > img {
   width: 120px;
-  height: 45px;
   display: block;
-  text-align: center;
-  color: #fff;
-  font-weight: 600;
-  line-height: 45px;
-  position: relative;
-  background-image: -webkit-gradient(linear, left top, right top, from(#1F1B68), color-stop(#352087), to(#1F1B68));
-  background-image: linear-gradient(to right, #1F1B68, #352087, #1F1B68);
-  border: 1px #24CCD5 solid;
-  border-bottom: 3px #FFDD00 solid;
+  -o-object-fit: contain;
+     object-fit: contain;
+  cursor: pointer;
 }
 
-#airplane > .center > .betBox > nav.nav > a.focus {
+#airplane > .center > .betBox > nav.nav > img.focus {
   color: #000;
   border: 1px #F4E91B solid;
   background-image: -webkit-gradient(linear, left top, right top, from(#F4E91B), color-stop(#FCFBCF), to(#F4E91B));
@@ -906,6 +899,10 @@ nav#nav > a:hover {
 
 #airplane > .center > .betBox > .content > .airplaneRankBox > div.rank > .air {
   width: 100%;
+}
+
+#airplane > .center > .betBox > .content#game2, #airplane > .center > .betBox > .content#game3, #airplane > .center > .betBox > .content#game4, #airplane > .center > .betBox > .content#game5 {
+  display: none;
 }
 
 #airplane > .center > .betList {

@@ -9,6 +9,7 @@ const doubleBtn = document.getElementById('doubleBtn');
 const reBtn = document.getElementById('reBtn');
 const myMoney = document.getElementById('myMoney');
 const balance = document.getElementById('balance');
+const gameBtn = document.getElementsByClassName('gameBtn');
 let secondsArr = [
     [7.7,'1'],
     [8,'2'],
@@ -84,3 +85,25 @@ reBtn.addEventListener('click',()=>{
     balance.innerHTML = myMoney.value
     dollar.innerHTML = betMoney;
 })
+
+for(let i=0;i<gameBtn.length;i++){
+    gameBtn[i].addEventListener('click',toggleGameFn);
+}
+function toggleGameFn(){
+    initGameDiv();
+    console.log(this.id.split('gameBtn'));
+    
+    if(this.src.indexOf('btnchk')== -1){
+        this.src = this.src.replace('btn','btnchk');
+        document.getElementById(`game${this.id.split('gameBtn')[1]}`).style.display = "block"
+    }else{
+        this.src = this.src.replace('btnchk','btn');
+        document.getElementById(`game${this.id.split('gameBtn')[1]}`).style.display = "block"
+    }
+}
+function initGameDiv(){
+    for(let i=1;i<=5;i++){
+        document.getElementById(`game${i}`).style.display = "none";
+        document.getElementById(`gameBtn${i}`).src = `../images/airplane/btn${i}.png`
+    }
+}
