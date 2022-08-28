@@ -531,7 +531,7 @@ nav#nav > a:hover {
   top: 27px;
   left: 30px;
   width: 389px;
-  height: 370px;
+  height: 450px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -542,6 +542,43 @@ nav#nav > a:hover {
   background-color: transparent;
 }
 
+#airplane > .center > .playBox > .airplaneDiv > .bg {
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  width: 385px;
+  height: auto;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+#airplane > .center > .playBox > .airplaneDiv > .bg.start {
+  -webkit-animation: bganim 11s linear;
+          animation: bganim 11s linear;
+}
+
+@-webkit-keyframes bganim {
+  0% {
+    -webkit-transform: translateY(-2800px);
+            transform: translateY(-2800px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes bganim {
+  0% {
+    -webkit-transform: translateY(-2800px);
+            transform: translateY(-2800px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
 #airplane > .center > .playBox > .airplaneDiv > .air {
   width: 38px;
   -webkit-transform: translateY(-380px);
@@ -550,6 +587,8 @@ nav#nav > a:hover {
           transform: translateY(120px);
   -webkit-transform: translateY(340px);
           transform: translateY(340px);
+  -webkit-transform: translateY(270px);
+          transform: translateY(270px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -625,8 +664,8 @@ nav#nav > a:hover {
 
 @-webkit-keyframes airNo1 {
   0% {
-    -webkit-transform: translateY(340px);
-            transform: translateY(340px);
+    -webkit-transform: translateY(270px);
+            transform: translateY(270px);
   }
   10% {
     -webkit-transform: translateY(60px);
@@ -672,8 +711,8 @@ nav#nav > a:hover {
 
 @keyframes airNo1 {
   0% {
-    -webkit-transform: translateY(340px);
-            transform: translateY(340px);
+    -webkit-transform: translateY(270px);
+            transform: translateY(270px);
   }
   10% {
     -webkit-transform: translateY(60px);

@@ -10,6 +10,7 @@ const reBtn = document.getElementById('reBtn');
 const myMoney = document.getElementById('myMoney');
 const balance = document.getElementById('balance');
 const gameBtn = document.getElementsByClassName('gameBtn');
+const playBoxBg = document.getElementById('playBoxBg');
 let secondsArr = [
     [7.7,'1'],
     [8,'2'],
@@ -39,6 +40,7 @@ chkBtn.addEventListener('click',()=>{
     }
     let chk = confirm('確認下注?');
     if(chk){
+        playBoxBg.classList.add('start');
         for(let j=1;j<=10;j++){
             html += `<p class='p${secondsArr[j-1][1]}'> ${j} </p>`;
         }
@@ -47,8 +49,12 @@ chkBtn.addEventListener('click',()=>{
         },11000)
         for(let i = 0;i<=air.length;i++){
             // air[i].classList.add(`air${i+1}`);
-            air[i].style.animation = `airNo1 ${secondsArr[i][0]}s linear`
+            air[i].style.animation = `airNo1 ${secondsArr[i][0]}s linear`;
             // animation: airNo1 8.2s linear;
+            setTimeout(()=>{
+                air[i].style.opacity = 0;
+                air[i].style.zIndex = -999;
+            },secondsArr[i][0]*1000)
         }
         
         return;

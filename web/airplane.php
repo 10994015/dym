@@ -42,6 +42,7 @@ if(isset($_SESSION['name'])){
             <div class="playBox">
                 <img src="../images/airplane/playbg.png" class="playBg">
                 <div class="airplaneDiv" id="airplaneDiv">
+                    <img src="../images/airplane/bg2.png" class="bg" id="playBoxBg">
                     <?php for($i=1;$i<=10;$i++){ ?>
                     <div class="air">
                         <img src="../images/airplane/air<?php echo $i?>.png" class="airImg">

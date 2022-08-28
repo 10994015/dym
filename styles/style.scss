@@ -377,18 +377,39 @@ nav#nav{
                 left:30px;
                 width:389px;
                 // width:85%;
-                height: 370px;
+                height: 450px;
                 display: flex;
                 align-items: flex-end;
                 // height: 64%;
                 overflow: hidden;
                 // background-color: rgba(255,0,0,.5);
                 background-color: transparent;
+                >.bg{
+                    position: absolute;
+                    top: 4px;
+                    left:3px;
+                    width:385px;
+                    height: auto;
+                    transform: translateY(0);
+                    &.start{
+                        animation: bganim 11s linear;
+                        @keyframes bganim {
+                            0%{
+                                transform: translateY(-2800px);
+                            }
+                            100%{
+                                transform: translateY(0);
+                            }
+                        }
+                    }
+                    
+                }
                 >.air{
                     width:38px;
                     transform: translateY(-380px);
                     transform: translateY(120px);
                     transform: translateY(340px);
+                    transform: translateY(270px);
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -434,7 +455,7 @@ nav#nav{
                     }
                     @keyframes airNo1 {
                         0%{
-                            transform: translateY(340px);
+                            transform: translateY(270px);
                         }
                         10%{
                             transform: translateY(60px);
