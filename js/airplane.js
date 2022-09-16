@@ -8,9 +8,14 @@ const dollar = document.getElementById('dollar');
 const doubleBtn = document.getElementById('doubleBtn');
 const reBtn = document.getElementById('reBtn');
 const myMoney = document.getElementById('myMoney');
+const myId = document.getElementById('myId');
 const balance = document.getElementById('balance');
 const gameBtn = document.getElementsByClassName('gameBtn');
 const playBoxBg = document.getElementById('playBoxBg');
+const airplaneRankBox = document.getElementById('airplaneRankBox');
+const hiddenRadioRank = document.getElementById('hiddenRadioRank');
+let guessAir = 0;
+let champion = 0;
 let secondsArr = [
     [7.7,'1'],
     [8,'2'],
@@ -23,19 +28,32 @@ let secondsArr = [
     [10.5,'9'],
     [11,'10']
 ]
+
 let betMoney = 0;
 let html = '';
 function shuffleArray(secondsArr){
     secondsArr.sort(()=> Math.random() - 0.5);
+    for(let c=1;c<=10;c++){
+        if(secondsArr[c-1][1] == '1'){
+            champion = c;
+        }
+    }
+    console.log(champion);
+    
 }
 shuffleArray(secondsArr);
-
 console.log(secondsArr);
+
+
 
 
 chkBtn.addEventListener('click',()=>{
     if(betMoney<=0){
         alert('您的下注金額為0,請先下注!');
+        return;
+    }
+    if(!hiddenRadioRank.checked){
+        alert('您尚未選擇飛機');
         return;
     }
     let chk = confirm('確認下注?');
@@ -46,7 +64,29 @@ chkBtn.addEventListener('click',()=>{
         }
         setTimeout(()=>{
             airRnakList.innerHTML = html;
+            airRnakList.style.opacity = 1;
         },11000)
+        setTimeout(()=>{
+            console.log('PK');
+          if(champion == guessAir){
+              console.log('贏錢');
+              
+            myMoney.value = Number(myMoney.value) + (Number(dollar.innerHTML) * 2);
+            balance.innerHTML = myMoney.value;
+
+            axios.get(`./updateMoney.php?id=${myId.value}&money=${myMoney.value}`).then((res)=>{
+                console.log(res);
+            })
+          }else{
+              console.log("輸錢");
+              myMoney.value = balance.innerHTML;
+              
+              axios.get(`./updateMoney.php?id=${myId.value}&money=${myMoney.value}`).then((res)=>{
+                console.log(res);
+            })
+              
+          }
+        },11500)
         for(let i = 0;i<=air.length;i++){
             // air[i].classList.add(`air${i+1}`);
             air[i].style.animation = `airNo1 ${secondsArr[i][0]}s linear`;
@@ -64,6 +104,7 @@ chkBtn.addEventListener('click',()=>{
 const diamondFn = (e)=>{
     if(myMoney.value<Number(e.target.alt)){
         alert('您的餘額為不足，請先儲值')
+        return;
     }
     betMoney += Number(e.target.alt);
     myMoney.value = Number(myMoney.value) - Number(e.target.alt);
@@ -111,5 +152,24 @@ function initGameDiv(){
     for(let i=1;i<=5;i++){
         document.getElementById(`game${i}`).style.display = "none";
         document.getElementById(`gameBtn${i}`).src = `../images/airplane/btn${i}.png`
+    }
+}
+
+function airplaneRankFn(i){
+    if(hiddenRadioRank.checked){
+        if(guessAir!=0 && guessAir == i){
+            hiddenRadioRank.checked = false;
+            airplaneRankBox.getElementsByClassName('medal')[i-1].style.opacity = 0;
+            guessAir = 0;
+        }
+        console.log(guessAir);
+        return;
+    }
+    if(!hiddenRadioRank.checked){
+        hiddenRadioRank.checked = true;
+        airplaneRankBox.getElementsByClassName('medal')[i-1].style.opacity = 1;
+        guessAir = i;
+        console.log(guessAir);
+        // e.target.getElementsByClassName('medal')[0].style.opacity = 1;
     }
 }

@@ -359,10 +359,13 @@ nav#nav{
         display: flex;
         justify-content: center;
         >.playBox{
-            width:450px;
+            width:400px;
             height: auto;
             position: relative;
             margin:0 20px;
+            border:6px #ED35D1 solid;
+            overflow: hidden;
+            min-width:400px;
             >img.playBg{
                 width:450px;
                 height: auto;
@@ -373,11 +376,11 @@ nav#nav{
             }
             >.airplaneDiv{
                 position: absolute;
-                top: 27px;
-                left:30px;
-                width:389px;
+                top: 0;
+                left:0px;
+                width:100%;
                 // width:85%;
-                height: 450px;
+                height: 540px;
                 display: flex;
                 align-items: flex-end;
                 // height: 64%;
@@ -386,9 +389,9 @@ nav#nav{
                 background-color: transparent;
                 >.bg{
                     position: absolute;
-                    top: 4px;
-                    left:3px;
-                    width:385px;
+                    top: 0px;
+                    left:0px;
+                    width:100%;
                     height: auto;
                     transform: translateY(0);
                     &.start{
@@ -496,13 +499,14 @@ nav#nav{
                 justify-content: center;
                 align-items: center;
                 position: absolute;
-                bottom:0;
+                top:0;
                 left:0;
-                width:400px;
-                height: 60px;
-                background-color: rgba(255,0,0,.5);
+                width:100%;
+                height: 100%;
+                background-color: rgba(255,255,255,.5);
+                opacity: 0;
                 >p{
-                    color:#fff;
+                    color:#000;
                     margin:0 10px;
                     font-weight: 600;
                     font-size: 18px;
@@ -521,6 +525,12 @@ nav#nav{
             // height: 530px;
             // background: #2baaca;
             // background: linear-gradient(-60deg, transparent 35px, #2baaca 0);
+            #hiddenRadioRank{
+                position: fixed;
+                top:-999999999999999999px;
+                left:999999999999999px;
+                opacity: 0;
+            }
             >nav.nav{
                 display: flex;
                 justify-content: flex-start;
@@ -582,9 +592,11 @@ nav#nav{
                             position: absolute;
                             top: 0;
                             left:0;
+                            opacity: 0;
                         }
                         >.air{
                             width:100%;
+                            cursor: pointer;
                         }
                     }
                 }
@@ -597,12 +609,68 @@ nav#nav{
         >.betList{
             margin:0 20px;
             width: 252px;
+            min-width: 252px;
+            height: 540px;
+            border:6px #ED35D1 solid;
             position: relative;
-            >img{
-                width:252px;
+            padding: 10px;
+            padding-top: 54px;
+            padding-bottom: 55px;
+            >.header{
+                width:calc(100% + 12px);
+                height: 50px;
                 position: absolute;
-                top:0;
+                top: -6px;
+                left:-6px;
+                background-image: linear-gradient(to right,#E23CD2,#00FFFF);
+                color:#000;
+                font-weight: 900;
+                font-size: 24px;
+                text-align: center;
+                line-height: 50px;
+            }
+            >.list{
+                width:100%;
+                height: 55px;
+                background-color: rgba(226, 60, 210,.5);
+                color:#fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 12px;
+                >.title{
+                    border:1px #fff solid;
+                    border-radius: 50%;
+                    width:45px;
+                    height: 45px;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin:0 3px;
+                    font-size: 12px;
+
+                }
+                >.issue{
+                    font-weight: 900;
+                    margin:0 3px;
+                }
+                
+            }
+            >.total{
+                width:100%;
+                position: absolute;
+                bottom:0;
                 left:0;
+                height: 60px;
+                background-color: #2C1B71;
+                color:#1CE6F8;
+                font-size: 13px;
+                padding: 0 15px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                font-weight: 900;
             }
             >p.betText{
                 position: absolute;

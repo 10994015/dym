@@ -2,6 +2,7 @@
 require_once('../config/conn.php');
 session_start();
 $myMoney = $_SESSION['money'];
+$id = $_SESSION['id'];
 
 
 if(isset($_SESSION['name'])){
@@ -19,6 +20,7 @@ if(isset($_SESSION['name'])){
 <body>
     <div id="airplane">
         <input type="hidden" value="<?php echo $myMoney; ?>" id="myMoney">
+        <input type="hidden" value="<?php echo $id; ?>" id="myId">
         <div class="header">
            <div class="left">
             <div class="userBox">
@@ -40,20 +42,22 @@ if(isset($_SESSION['name'])){
         </div>
         <div class="center">
             <div class="playBox">
-                <img src="../images/airplane/playbg.png" class="playBg">
+                <!-- <img src="../images/airplane/playbg.png" class="playBg"> -->
                 <div class="airplaneDiv" id="airplaneDiv">
                     <img src="../images/airplane/bg2.png" class="bg" id="playBoxBg">
                     <?php for($i=1;$i<=10;$i++){ ?>
-                    <div class="air">
-                        <img src="../images/airplane/air<?php echo $i?>.png" class="airImg">
-                        <img src="../images/airplane/injection.png" class="injection">
-                    </div>
+                        <div class="air">
+                            <img src="../images/airplane/air<?php echo $i?>.png" class="airImg">
+                            <img src="../images/airplane/injection.png" class="injection">
+                        </div>
                     <?php } ?>
+                    <div></div>
                 </div>
-                <div class="airRnakList" id="airRnakList">
-                </div>
+                <div class="airRnakList" id="airRnakList"></div>
             </div>
             <div class="betBox">
+                <input type="checkbox" id="hiddenRadioRank">
+
                 <nav class="nav">
                     <img src="../images/airplane/btnchk1.png" id="gameBtn1" class="gameBtn">
                     <img src="../images/airplane/btn2.png" id="gameBtn2" class="gameBtn">
@@ -73,10 +77,12 @@ if(isset($_SESSION['name'])){
                             <img src="../images/airplane/no<?php echo $i;?>.png">
                         <?php } ?>
                     </div>
-                    <div class="airplaneRankBox">
+                    <div class="airplaneRankBox" id="airplaneRankBox">
                         <?php for($i=1;$i<=10;$i++){ ?>
-                        <div class="rank no<?php echo $i; ?>" id="airRank">
-                            <img src="../images/airplane/medal<?php echo $i; ?>.png" class="medal">
+                        <!-- <div class="rank no<?php echo $i; ?>" id="airRank"> -->
+                        <div class="rank no<?php echo $i; ?>" onclick="airplaneRankFn(<?php echo $i; ?>)">
+                            <!-- <img src="../images/airplane/medal<?php echo $i; ?>.png" class="medal"> -->
+                            <img src="../images/airplane/medal1.png" class="medal">
                             <img src="../images/airplane/air<?php echo $i; ?>.png" class="air">
                         </div>
                         <?php } ?>
@@ -88,8 +94,18 @@ if(isset($_SESSION['name'])){
                 <div class="content" id="game5"></div>
             </div>
             <div class="betList">
-                <img src="../images/airplane/betList.png" class="betListBg">
-                <p class="betText">SR17082208161906</p>
+                <!-- <img src="../images/airplane/betList.png" class="betListBg"> -->
+                <!-- <p class="betText">SR17082208161906</p> -->
+                <div class="header">注單列表</div>
+                <div class="list">
+                    <div class="title"><p>下注<br>期號</p></div>
+                    <div class="issue">SR17082208161906</div>
+                </div>
+
+                <div class="total">
+                    <p>總注數</p>
+                    <p>總投注金額</p>
+                </div>
             </div>
         </div>
         <div class="bottom">
@@ -110,6 +126,7 @@ if(isset($_SESSION['name'])){
             </div>
         </div>
     </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
 <script src="../js/airplane.js"></script>
 </body>
 </html>
