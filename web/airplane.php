@@ -54,6 +54,7 @@ if(isset($_SESSION['name'])){
                     <div></div>
                 </div>
                 <div class="airRnakList" id="airRnakList"></div>
+                
             </div>
             <div class="betBox">
                 <input type="checkbox" id="hiddenRadioRank">

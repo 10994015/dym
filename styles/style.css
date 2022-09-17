@@ -846,6 +846,30 @@ nav#nav > a:hover {
           order: 10;
 }
 
+#airplane > .center > .playBox > .timing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+}
+
+#airplane > .center > .playBox > .timing > p {
+  font-size: 40px;
+}
+
 #airplane > .center > .betBox {
   margin: 0 20px;
   width: 600px;

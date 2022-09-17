@@ -31,6 +31,11 @@ let secondsArr = [
 
 let betMoney = 0;
 let html = '';
+shuffleArray(secondsArr);
+// setInterval(()=>{
+//     console.log('10s過去了');
+//     shuffleArray(secondsArr);
+// }, 10000);
 function shuffleArray(secondsArr){
     secondsArr.sort(()=> Math.random() - 0.5);
     for(let c=1;c<=10;c++){
@@ -38,10 +43,66 @@ function shuffleArray(secondsArr){
             champion = c;
         }
     }
-    console.log(champion);
-    
+    console.log("答案:",champion);
 }
-shuffleArray(secondsArr);
+
+var id =setInterval(function () {
+    if (new Date().getSeconds()==0){   //myDate.getHours();    //獲取當前小時數(0-23) 
+        console.log('當前是',new Date().getMinutes())
+        airRnakList.style.opacity = 0;
+        playBoxBg.classList.add('start');
+        html = "";
+        for(let j=1;j<=10;j++){
+            html += `<p class='p${secondsArr[j-1][1]}'> ${j} </p>`;
+        }
+        for(let i = 0;i<=air.length;i++){
+            // air[i].classList.add(`air${i+1}`);
+            air[i].style.animation = `airNo1 ${secondsArr[i][0]}s linear`;
+            // animation: airNo1 8.2s linear;
+            setTimeout(()=>{
+                air[i].style.opacity = 0;
+                // air[i].style.zIndex = -999;
+            },secondsArr[i][0]*1000)
+        }
+        // clearInterval(id)
+    }
+    if(new Date().getSeconds()==11){
+        airRnakList.innerHTML = "";
+        airRnakList.innerHTML = html;
+        airRnakList.style.opacity = 1;
+    }
+    if(new Date().getSeconds()==12){
+        betMoney = 0;
+        dollar.innerHTML = betMoney;
+        guessAir = 0;
+        hiddenRadioRank.checked = false;
+        for(let i=0;i<10;i++){
+            airplaneRankBox.getElementsByClassName('medal')[i].style.opacity = 0;
+        }
+    }
+    if(new Date().getSeconds()==15){
+        // console.log('當前是',new Date().getMinutes())
+        playBoxBg.classList.remove('start');
+        shuffleArray(secondsArr);
+        for(let i=0;i<=air.length;i++){
+            air[i].style.opacity = 1;
+            // air[i].style.zIndex = 1;
+        }
+       
+    }
+    if(new Date().getSeconds()==30){
+        for(let i = 0;i<=air.length;i++){
+            air[i].style.animation = '';
+            air[i].style.opacity = 1;
+        }
+    }
+    if(new Date().getSeconds() <=13 || new Date().getSeconds()==59){
+        chkBtn.style.opacity = .5;
+    }
+    if(new Date().getSeconds() > 13){
+        chkBtn.style.opacity = 1;
+    }
+},1000,id)
 console.log(secondsArr);
 
 
@@ -56,21 +117,25 @@ chkBtn.addEventListener('click',()=>{
         alert('您尚未選擇飛機');
         return;
     }
+    
     let chk = confirm('確認下注?');
+    
     if(chk){
-        playBoxBg.classList.add('start');
-        for(let j=1;j<=10;j++){
-            html += `<p class='p${secondsArr[j-1][1]}'> ${j} </p>`;
-        }
-        setTimeout(()=>{
-            airRnakList.innerHTML = html;
-            airRnakList.style.opacity = 1;
-        },11000)
+        // playBoxBg.classList.add('start');
+        // for(let j=1;j<=10;j++){
+        //     html += `<p class='p${secondsArr[j-1][1]}'> ${j} </p>`;
+        // }
+        // setTimeout(()=>{
+        //     airRnakList.innerHTML = html;
+        //     airRnakList.style.opacity = 1;
+        // },11000)
+        
+        let differ = (60 - new Date().getSeconds() + 11)*1000;
+        console.log(differ);
         setTimeout(()=>{
             console.log('PK');
           if(champion == guessAir){
               console.log('贏錢');
-              
             myMoney.value = Number(myMoney.value) + (Number(dollar.innerHTML) * 2);
             balance.innerHTML = myMoney.value;
 
@@ -84,18 +149,17 @@ chkBtn.addEventListener('click',()=>{
               axios.get(`./updateMoney.php?id=${myId.value}&money=${myMoney.value}`).then((res)=>{
                 console.log(res);
             })
-              
           }
-        },11500)
-        for(let i = 0;i<=air.length;i++){
-            // air[i].classList.add(`air${i+1}`);
-            air[i].style.animation = `airNo1 ${secondsArr[i][0]}s linear`;
-            // animation: airNo1 8.2s linear;
-            setTimeout(()=>{
-                air[i].style.opacity = 0;
-                air[i].style.zIndex = -999;
-            },secondsArr[i][0]*1000)
-        }
+        },differ)
+        // for(let i = 0;i<=air.length;i++){
+        //     // air[i].classList.add(`air${i+1}`);
+        //     air[i].style.animation = `airNo1 ${secondsArr[i][0]}s linear`;
+        //     // animation: airNo1 8.2s linear;
+        //     setTimeout(()=>{
+        //         air[i].style.opacity = 0;
+        //         air[i].style.zIndex = -999;
+        //     },secondsArr[i][0]*1000)
+        // }
         
         return;
     }
