@@ -17,16 +17,16 @@ const hiddenRadioRank = document.getElementById('hiddenRadioRank');
 let guessAir = 0;
 let champion = 0;
 let secondsArr = [
-    [7.7,'1'],
-    [8,'2'],
-    [8.5,'3'],
-    [8.7,'4'],
-    [9,'5'],
-    [9.3,'6'],
-    [9.7,'7'],
-    [10,'8'],
-    [10.5,'9'],
-    [11,'10']
+    [10,'1'],
+    [10.1,'2'],
+    [10.11,'3'],
+    [10.12,'4'],
+    [10.13,'5'],
+    [10.14,'6'],
+    [10.15,'7'],
+    [10.16,'8'],
+    [10.17,'9'],
+    [10.18,'10']
 ]
 
 let betMoney = 0;
@@ -202,7 +202,7 @@ for(let i=0;i<gameBtn.length;i++){
 }
 function toggleGameFn(){
     initGameDiv();
-    console.log(this.id.split('gameBtn'));
+    // console.log(this.id.split('gameBtn'));
     
     if(this.src.indexOf('btnchk')== -1){
         this.src = this.src.replace('btn','btnchk');
