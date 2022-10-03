@@ -14,6 +14,22 @@ const gameBtn = document.getElementsByClassName('gameBtn');
 const playBoxBg = document.getElementById('playBoxBg');
 const airplaneRankBox = document.getElementById('airplaneRankBox');
 const hiddenRadioRank = document.getElementById('hiddenRadioRank');
+const diamondBoxLeft = document.getElementById('diamondBoxLeft');
+const diamondBoxRight = document.getElementById('diamondBoxRight');
+let guessAirArray = {
+    no1:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
+    no2:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
+    no3:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
+    no4:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
+    no5:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
+    no6:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
+    no7:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
+    no8:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
+    no9:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
+    no10:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
+}
+let chooseRanking = 1;
+document.getElementById(`rankingImg${chooseRanking}`).src = `../images/airplane/no${chooseRanking}chk.png`;
 let guessAir = 0;
 let champion = 0;
 let secondsArr = [
@@ -30,6 +46,7 @@ let secondsArr = [
 ]
 
 let betMoney = 0;
+let totalBetMoney = 0;
 let html = '';
 shuffleArray(secondsArr);
 // setInterval(()=>{
@@ -76,9 +93,7 @@ var id =setInterval(function () {
         dollar.innerHTML = betMoney;
         guessAir = 0;
         hiddenRadioRank.checked = false;
-        for(let i=0;i<10;i++){
-            airplaneRankBox.getElementsByClassName('medal')[i].style.opacity = 0;
-        }
+        
     }
     if(new Date().getSeconds()==15){
         // console.log('當前是',new Date().getMinutes())
@@ -151,28 +166,19 @@ chkBtn.addEventListener('click',()=>{
             })
           }
         },differ)
-        // for(let i = 0;i<=air.length;i++){
-        //     // air[i].classList.add(`air${i+1}`);
-        //     air[i].style.animation = `airNo1 ${secondsArr[i][0]}s linear`;
-        //     // animation: airNo1 8.2s linear;
-        //     setTimeout(()=>{
-        //         air[i].style.opacity = 0;
-        //         air[i].style.zIndex = -999;
-        //     },secondsArr[i][0]*1000)
-        // }
         
         return;
     }
 })
 
 const diamondFn = (e)=>{
-    if(myMoney.value<Number(e.target.alt)){
-        alert('您的餘額為不足，請先儲值')
-        return;
-    }
-    betMoney += Number(e.target.alt);
-    myMoney.value = Number(myMoney.value) - Number(e.target.alt);
-    balance.innerHTML = myMoney.value
+    // if(myMoney.value<Number(e.target.alt)){
+    //     alert('您的餘額為不足，請先儲值')
+    //     return;
+    // }
+    betMoney =  Number(e.target.alt);
+    // myMoney.value = Number(myMoney.value) - Number(e.target.alt);
+    // balance.innerHTML = myMoney.value
     dollar.innerHTML = betMoney;
 }
 
@@ -181,20 +187,20 @@ for(let i=0;i<diamondBtn.length;i++){
 }
 
 doubleBtn.addEventListener('click',()=>{
-    if(myMoney.value <=betMoney ){
-        alert('您的餘額為不足，請先儲值')
-        return;
-    }
-    myMoney.value = Number(myMoney.value - betMoney);
-    betMoney = betMoney*2;
-    balance.innerHTML = myMoney.value
-    dollar.innerHTML = betMoney;
+    // if(myMoney.value <=betMoney ){
+    //     alert('您的餘額為不足，請先儲值')
+    //     return;
+    // }
+    // myMoney.value = Number(myMoney.value - betMoney);
+    // betMoney = betMoney*2;
+    // balance.innerHTML = myMoney.value
+    // dollar.innerHTML = betMoney;
 })
 reBtn.addEventListener('click',()=>{
-    myMoney.value = Number(myMoney.value) + betMoney;
-    betMoney = 0;
-    balance.innerHTML = myMoney.value
-    dollar.innerHTML = betMoney;
+    // myMoney.value = Number(myMoney.value) + betMoney;
+    // betMoney = 0;
+    // balance.innerHTML = myMoney.value
+    // dollar.innerHTML = betMoney;
 })
 
 for(let i=0;i<gameBtn.length;i++){
@@ -219,21 +225,46 @@ function initGameDiv(){
     }
 }
 
-function airplaneRankFn(i){
-    if(hiddenRadioRank.checked){
-        if(guessAir!=0 && guessAir == i){
-            hiddenRadioRank.checked = false;
-            airplaneRankBox.getElementsByClassName('medal')[i-1].style.opacity = 0;
-            guessAir = 0;
-        }
-        console.log(guessAir);
-        return;
-    }
-    if(!hiddenRadioRank.checked){
-        hiddenRadioRank.checked = true;
-        airplaneRankBox.getElementsByClassName('medal')[i-1].style.opacity = 1;
-        guessAir = i;
-        console.log(guessAir);
-        // e.target.getElementsByClassName('medal')[0].style.opacity = 1;
+// function airplaneRankFn(i){
+//     if(hiddenRadioRank.checked){
+//         if(guessAir!=0 && guessAir == i){
+//             hiddenRadioRank.checked = false;
+//             guessAir = 0;
+//         }
+//         console.log(guessAir);
+//         return;
+//     }
+//     if(!hiddenRadioRank.checked){
+//         hiddenRadioRank.checked = true;
+//         guessAir = i;
+//         console.log(guessAir);
+//     }
+// }
+function toggleRankingFn(i){
+    initRankingFn();
+    chooseRanking = i;
+    console.log("目前名次=>",chooseRanking);
+    // this.src = `../images/airplane/no${i}chk.png`;
+    document.getElementById(`rankingImg${i}`).src  = `../images/airplane/no${i}chk.png`;
+    
+}
+function initRankingFn(){
+    chooseRanking = 0;
+    for(let i=0;i<10;i++){
+        document.getElementById('rankBtnBox').getElementsByClassName('rankingImg')[i].src = `../images/airplane/no${i+1}.png`;
     }
 }
+function airplaneRankFn(i){
+
+}
+
+diamondBoxRight.addEventListener('click',()=>{
+    for(let i=0;i<diamondBtn.length;i++){
+        diamondBtn[i].style.transform = 'translateX(-300px)';
+    }
+})
+diamondBoxLeft.addEventListener('click',()=>{
+    for(let i=0;i<diamondBtn.length;i++){
+        diamondBtn[i].style.transform = 'translateX(0px)';
+    }
+})

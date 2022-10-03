@@ -1083,28 +1083,54 @@ nav#nav > a:hover {
 
 #airplane > .bottom {
   width: 100%;
+  max-width: 1200px;
+  margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #airplane > .bottom > .diamondBox {
+  position: relative;
+}
+
+#airplane > .bottom > .diamondBox > i {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  font-size: 30px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  cursor: pointer;
+}
+
+#airplane > .bottom > .diamondBox > i#diamondBoxLeft {
+  left: -25px;
+}
+
+#airplane > .bottom > .diamondBox > i#diamondBoxRight {
+  right: -25px;
+}
+
+#airplane > .bottom > .diamondBox > .diamondBoxList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0 20px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  width: 300px;
+  overflow: hidden;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
-#airplane > .bottom > .diamondBox > img {
+#airplane > .bottom > .diamondBox > .diamondBoxList > img {
   width: 100px;
-  margin: 0 5px;
   cursor: pointer;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 #airplane > .bottom > .perbetBox {

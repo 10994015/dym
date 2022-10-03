@@ -73,9 +73,9 @@ if(isset($_SESSION['name'])){
                 </nav>
                 <div class="content" id="game1">
                     <span class="odds">猜每一個名次的稱號 賠率9.8</span>
-                    <div class="rankBtnBox">
+                    <div class="rankBtnBox" id="rankBtnBox">
                         <?php for($i=1;$i<=10;$i++){ ?>
-                            <img src="../images/airplane/no<?php echo $i;?>.png">
+                            <img src="../images/airplane/no<?php echo $i;?>.png" id="rankingImg<?php echo $i; ?>" class="rankingImg" onclick="toggleRankingFn(<?php echo $i;?>)">
                         <?php } ?>
                     </div>
                     <div class="airplaneRankBox" id="airplaneRankBox">
@@ -83,7 +83,7 @@ if(isset($_SESSION['name'])){
                         <!-- <div class="rank no<?php echo $i; ?>" id="airRank"> -->
                         <div class="rank no<?php echo $i; ?>" onclick="airplaneRankFn(<?php echo $i; ?>)">
                             <!-- <img src="../images/airplane/medal<?php echo $i; ?>.png" class="medal"> -->
-                            <img src="../images/airplane/medal1.png" class="medal">
+                            <!-- <img src="../images/airplane/medal1.png" class="medal"> -->
                             <img src="../images/airplane/air<?php echo $i; ?>.png" class="air">
                         </div>
                         <?php } ?>
@@ -111,10 +111,17 @@ if(isset($_SESSION['name'])){
         </div>
         <div class="bottom">
             <div class="diamondBox" id="diamondBox">
-                <img src="../images/airplane/diamond10.png" alt="10" class="diamondBtn">
-                <img src="../images/airplane/diamond50.png" alt="50" class="diamondBtn">
-                <img src="../images/airplane/diamond100.png" alt="100" class="diamondBtn">
-                <img src="../images/airplane/diamond500.png" alt="500" class="diamondBtn">
+                <i class="fa-solid fa-chevron-left" id="diamondBoxLeft"></i>
+                <i class="fa-solid fa-chevron-right" id="diamondBoxRight"></i>
+                <div class="diamondBoxList">
+                    <img src="../images/airplane/diamond10.png" alt="10" class="diamondBtn">
+                    <img src="../images/airplane/diamond50.png" alt="50" class="diamondBtn">
+                    <img src="../images/airplane/diamond100.png" alt="100" class="diamondBtn">
+                    <img src="../images/airplane/diamond1000.png" alt="1000" class="diamondBtn">
+                    <img src="../images/airplane/diamond5000.png" alt="5000" class="diamondBtn">
+                    <img src="../images/airplane/diamond10000.png" alt="10000" class="diamondBtn">
+                </div>
+               
             </div>
             <div class="perbetBox">
                 <img src="../images/airplane/perbet.png">

@@ -700,18 +700,40 @@ nav#nav{
     }
     >.bottom{
         width:100%;
+        max-width: 1200px;
+        margin:auto;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         >.diamondBox{
-            display: flex;
-            margin:0 20px;
-            justify-content: center;
-            >img{
-                width:100px;
-                margin:0 5px;
+            position: relative;
+            >i{
+                color:#fff;
+                position: absolute;
+                top:50%;
+                font-size: 30px;
+                transform: translateY(-50%);
                 cursor: pointer;
+                &#diamondBoxLeft{
+                    left:-25px;
+                }
+                &#diamondBoxRight{
+                    right:-25px;
+                }
+            }
+            >.diamondBoxList{
+                display: flex;
+                width:300px;
+                overflow: hidden;
+                justify-content: flex-start;
+                >img{
+                    width:100px;
+                    cursor: pointer;
+                    transition: .5s;
+                    // transform: translateX(-300px);
+                }
             }
         }
+        
         >.perbetBox{
             width:200px;
             margin:0 20px;
