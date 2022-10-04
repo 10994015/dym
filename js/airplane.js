@@ -1,9 +1,13 @@
 const chkBtn = document.getElementById('chkBtn');
 const airplaneDiv = document.getElementById('airplaneDiv');
 const air = airplaneDiv.getElementsByClassName('air');
-console.log(air);
+const betAir = document.getElementsByClassName('betAir')
 const diamondBtn = document.getElementById('diamondBox').getElementsByClassName('diamondBtn');
 const airRnakList = document.getElementById('airRnakList');
+const airTrend = document.getElementById('airTrend');
+const countdown = document.getElementById('countdown');
+const airTopThree = document.getElementById('airTopThree');
+const airTopTen = document.getElementById('airTopTen');
 const dollar = document.getElementById('dollar');
 const doubleBtn = document.getElementById('doubleBtn');
 const reBtn = document.getElementById('reBtn');
@@ -16,17 +20,21 @@ const airplaneRankBox = document.getElementById('airplaneRankBox');
 const hiddenRadioRank = document.getElementById('hiddenRadioRank');
 const diamondBoxLeft = document.getElementById('diamondBoxLeft');
 const diamondBoxRight = document.getElementById('diamondBoxRight');
+const bar = document.getElementById('bar'); 
+let addMoney = 0;
+let minusMoney = 0;
+let totalMoney = 0;
 let guessAirArray = {
-    no1:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
-    no2:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
-    no3:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
-    no4:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
-    no5:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
-    no6:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
-    no7:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
-    no8:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
-    no9:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
-    no10:{ bet:[{air:1,money:0},{air:2,money:0},{air:3,money:0},{air:4,money:0},{air:5,money:0},{air:6,money:0},{air:7,money:0},{air:8,money:0},{air:9,money:0},{air:10,money:0}]},
+    no1:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+    no2:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+    no3:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+    no4:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+    no5:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+    no6:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+    no7:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+    no8:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+    no9:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+    no10:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
 }
 let chooseRanking = 1;
 document.getElementById(`rankingImg${chooseRanking}`).src = `../images/airplane/no${chooseRanking}chk.png`;
@@ -44,7 +52,9 @@ let secondsArr = [
     [10.17,'9'],
     [10.18,'10']
 ]
-
+let ansObj = {
+    no1:"",no2:"",no3:"",no4:"",no5:"",no6:"",no7:"",no8:"",no9:"",no10:""
+}
 let betMoney = 0;
 let totalBetMoney = 0;
 let html = '';
@@ -56,10 +66,19 @@ shuffleArray(secondsArr);
 function shuffleArray(secondsArr){
     secondsArr.sort(()=> Math.random() - 0.5);
     for(let c=1;c<=10;c++){
-        if(secondsArr[c-1][1] == '1'){
-            champion = c;
-        }
+        if(secondsArr[c-1][1] == '1'){ ansObj.no1 = c; champion = c;}
+        if(secondsArr[c-1][1] == '2'){ ansObj.no2 = c; }
+        if(secondsArr[c-1][1] == '3'){ ansObj.no3 = c; }
+        if(secondsArr[c-1][1] == '4'){ ansObj.no4 = c; }
+        if(secondsArr[c-1][1] == '5'){ ansObj.no5 = c; }
+        if(secondsArr[c-1][1] == '6'){ ansObj.no6 = c; }
+        if(secondsArr[c-1][1] == '7'){ ansObj.no7 = c; }
+        if(secondsArr[c-1][1] == '8'){ ansObj.no8 = c; }
+        if(secondsArr[c-1][1] == '9'){ ansObj.no9 = c; }
+        if(secondsArr[c-1][1] == '10'){ ansObj.no10 = c; }
     }
+    console.log("答案=>", ansObj);
+    
     console.log("答案:",champion);
 }
 
@@ -118,7 +137,6 @@ var id =setInterval(function () {
         chkBtn.style.opacity = 1;
     }
 },1000,id)
-console.log(secondsArr);
 
 
 
@@ -129,43 +147,37 @@ chkBtn.addEventListener('click',()=>{
         return;
     }
     if(!hiddenRadioRank.checked){
-        alert('您尚未選擇飛機');
+        alert('您尚未下注');
         return;
     }
     
     let chk = confirm('確認下注?');
     
     if(chk){
-        // playBoxBg.classList.add('start');
-        // for(let j=1;j<=10;j++){
-        //     html += `<p class='p${secondsArr[j-1][1]}'> ${j} </p>`;
-        // }
-        // setTimeout(()=>{
-        //     airRnakList.innerHTML = html;
-        //     airRnakList.style.opacity = 1;
-        // },11000)
-        
         let differ = (60 - new Date().getSeconds() + 11)*1000;
         console.log(differ);
+        for(let i=1;i<=10;i++){
+            for(let j=1;j<=10;j++){
+                if(guessAirArray['no'+i]['air'+j].money > 0 ){
+                    // 答案: ansObj['no'+i]
+                     if(ansObj['no'+i] == j ){
+                         addMoney += guessAirArray['no'+i]['air'+j].money ;
+                     }
+                     
+                }
+            }
+        }
+        
+        console.log("贏了=>", addMoney);
+        console.log("總計=>", totalMoney);
         setTimeout(()=>{
-            console.log('PK');
-          if(champion == guessAir){
-              console.log('贏錢');
-            myMoney.value = Number(myMoney.value) + (Number(dollar.innerHTML) * 2);
+            console.log("pk time");
+            myMoney.value = Number(myMoney.value) + Number(addMoney * 2) ; 
             balance.innerHTML = myMoney.value;
-
             axios.get(`./updateMoney.php?id=${myId.value}&money=${myMoney.value}`).then((res)=>{
                 console.log(res);
             })
-          }else{
-              console.log("輸錢");
-              myMoney.value = balance.innerHTML;
-              
-              axios.get(`./updateMoney.php?id=${myId.value}&money=${myMoney.value}`).then((res)=>{
-                console.log(res);
-            })
-          }
-        },differ)
+        }, differ)
         
         return;
     }
@@ -176,10 +188,11 @@ const diamondFn = (e)=>{
     //     alert('您的餘額為不足，請先儲值')
     //     return;
     // }
+   
     betMoney =  Number(e.target.alt);
-    // myMoney.value = Number(myMoney.value) - Number(e.target.alt);
-    // balance.innerHTML = myMoney.value
     dollar.innerHTML = betMoney;
+    // myMoney.value = Number(myMoney.value) - betMoney;
+    // balance.innerHTML = myMoney.value
 }
 
 for(let i=0;i<diamondBtn.length;i++){
@@ -187,20 +200,38 @@ for(let i=0;i<diamondBtn.length;i++){
 }
 
 doubleBtn.addEventListener('click',()=>{
-    // if(myMoney.value <=betMoney ){
-    //     alert('您的餘額為不足，請先儲值')
-    //     return;
-    // }
-    // myMoney.value = Number(myMoney.value - betMoney);
-    // betMoney = betMoney*2;
-    // balance.innerHTML = myMoney.value
-    // dollar.innerHTML = betMoney;
+    if(myMoney.value < minusMoney){
+        alert('餘額不足');
+        return;
+    }
+    
+    for(let i=1;i<=10;i++){
+        for(let j=1;j<=10;j++){
+            if(guessAirArray['no'+i]['air'+j].money > 0){
+                guessAirArray['no'+i]['air'+j].money = guessAirArray['no'+i]['air'+j].money *2;
+            }
+        }
+    }
+    myMoney.value = Number(myMoney.value - minusMoney);
+    balance.innerHTML = myMoney.value
+
+    minusMoney = minusMoney * 2;
+    console.log(guessAirArray);
+   
 })
 reBtn.addEventListener('click',()=>{
-    // myMoney.value = Number(myMoney.value) + betMoney;
-    // betMoney = 0;
-    // balance.innerHTML = myMoney.value
-    // dollar.innerHTML = betMoney;
+    for(let i=1;i<=10;i++){
+        for(let j=1;j<=10;j++){
+            guessAirArray['no'+i]['air'+j].money = 0;
+        }
+    }
+    myMoney.value = Number(myMoney.value) + minusMoney;
+    balance.innerHTML = myMoney.value;
+    hiddenRadioRank.checked = false;
+
+    console.log(guessAirArray);
+    
+
 })
 
 for(let i=0;i<gameBtn.length;i++){
@@ -224,22 +255,13 @@ function initGameDiv(){
         document.getElementById(`gameBtn${i}`).src = `../images/airplane/btn${i}.png`
     }
 }
+for(let i=0;i<air.length;i++){
+    air[i].addEventListener('click',betFn);
+}
+function betFn(e){
+    console.log(e.target);
+}
 
-// function airplaneRankFn(i){
-//     if(hiddenRadioRank.checked){
-//         if(guessAir!=0 && guessAir == i){
-//             hiddenRadioRank.checked = false;
-//             guessAir = 0;
-//         }
-//         console.log(guessAir);
-//         return;
-//     }
-//     if(!hiddenRadioRank.checked){
-//         hiddenRadioRank.checked = true;
-//         guessAir = i;
-//         console.log(guessAir);
-//     }
-// }
 function toggleRankingFn(i){
     initRankingFn();
     chooseRanking = i;
@@ -254,9 +276,7 @@ function initRankingFn(){
         document.getElementById('rankBtnBox').getElementsByClassName('rankingImg')[i].src = `../images/airplane/no${i+1}.png`;
     }
 }
-function airplaneRankFn(i){
 
-}
 
 diamondBoxRight.addEventListener('click',()=>{
     for(let i=0;i<diamondBtn.length;i++){
@@ -267,4 +287,45 @@ diamondBoxLeft.addEventListener('click',()=>{
     for(let i=0;i<diamondBtn.length;i++){
         diamondBtn[i].style.transform = 'translateX(0px)';
     }
+})
+
+for(let i=0;i<betAir.length;i++){
+    betAir[i].addEventListener('click',betFn);
+}
+
+function betFn(e){
+    // chooseRanking
+    // betMoney
+    // guessAirArray
+    if(betMoney == 0){
+        alert('請選擇下注金額!')
+        return;
+    }
+    if(Number(myMoney.value) < betMoney){
+        alert('餘額不足!');
+        return;
+    }
+    minusMoney += betMoney;
+    myMoney.value = Number(myMoney.value) - betMoney;
+    balance.innerHTML = myMoney.value
+    hiddenRadioRank.checked = true;
+    
+    
+
+    let sd = e.target.parentNode.getElementsByClassName('smallDiamond')[0];
+    sd.style.display = "none";
+    sd.src = `../images/airplane/diamond${betMoney}.png`
+    sd.style.display = "block";
+    setTimeout(()=>{
+        sd.style.display = "none";
+    },200)
+
+    let aitNumber = e.target.alt;
+    guessAirArray['no'+chooseRanking]['air'+aitNumber].money += betMoney;
+    console.log(guessAirArray['no'+chooseRanking]['air'+aitNumber].money);
+    
+}
+
+bar.addEventListener('click',()=>{
+    console.log(guessAirArray);
 })

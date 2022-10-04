@@ -503,10 +503,10 @@ nav#nav{
                 left:0;
                 width:100%;
                 height: 100%;
-                background-color: rgba(255,255,255,.5);
+                background-color: #2A3C4F;
                 opacity: 0;
                 >p{
-                    color:#000;
+                    color:#fff;
                     margin:0 10px;
                     font-weight: 600;
                     font-size: 18px;
@@ -603,12 +603,25 @@ nav#nav{
                     >div.rank{
                         width:100%;
                         position: relative;
-                        >.medal{
-                            width:30px;
+                        >.smallDiamond{
                             position: absolute;
-                            top: 0;
-                            left:0;
-                            opacity: 0;
+                            width:40px;
+                            opacity: .8;
+                            top: 50%;
+                            left:50%;
+                            transform: translate(-50%, -50%);
+                            animation: betDiamond .2s linear;
+                            display: none;
+                            @keyframes betDiamond {
+                                0%{
+                                    top: 200px;
+                                    left:-100px;
+                                }
+                                100%{
+                                    top: 50%;
+                                    left:50%;
+                                }
+                            }
                         }
                         >.air{
                             width:100%;
@@ -704,6 +717,8 @@ nav#nav{
         margin:auto;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        height: 150px;
         >.diamondBox{
             position: relative;
             >i{
@@ -723,13 +738,14 @@ nav#nav{
             >.diamondBoxList{
                 display: flex;
                 width:300px;
-                overflow: hidden;
                 justify-content: flex-start;
-                >img{
+                height: 150px;
+                overflow: hidden;
+                align-items: center;
+                >img.diamondBtn{
                     width:100px;
-                    cursor: pointer;
                     transition: .5s;
-                    // transform: translateX(-300px);
+                    cursor: pointer;
                 }
             }
         }
@@ -739,14 +755,11 @@ nav#nav{
             margin:0 20px;
             position: relative;
             >img{
-                position: absolute;
-                top: 0;
-                left:0;
                 width:200px;
             }
             >.dollar{
                 position: absolute;
-                top:52%;
+                bottom:5px;
                 left:50%;
                 color:#fff;
                 font-size: 18px;

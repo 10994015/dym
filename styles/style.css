@@ -774,12 +774,12 @@ nav#nav > a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #2A3C4F;
   opacity: 0;
 }
 
 #airplane > .center > .playBox > .airRnakList > p {
-  color: #000;
+  color: #fff;
   margin: 0 10px;
   font-weight: 600;
   font-size: 18px;
@@ -964,12 +964,39 @@ nav#nav > a:hover {
   position: relative;
 }
 
-#airplane > .center > .betBox > .content > .airplaneRankBox > div.rank > .medal {
-  width: 30px;
+#airplane > .center > .betBox > .content > .airplaneRankBox > div.rank > .smallDiamond {
   position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
+  width: 40px;
+  opacity: .8;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-animation: betDiamond .2s linear;
+          animation: betDiamond .2s linear;
+  display: none;
+}
+
+@-webkit-keyframes betDiamond {
+  0% {
+    top: 200px;
+    left: -100px;
+  }
+  100% {
+    top: 50%;
+    left: 50%;
+  }
+}
+
+@keyframes betDiamond {
+  0% {
+    top: 200px;
+    left: -100px;
+  }
+  100% {
+    top: 50%;
+    left: 50%;
+  }
 }
 
 #airplane > .center > .betBox > .content > .airplaneRankBox > div.rank > .air {
@@ -1091,6 +1118,10 @@ nav#nav > a:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 150px;
 }
 
 #airplane > .bottom > .diamondBox {
@@ -1120,17 +1151,21 @@ nav#nav > a:hover {
   display: -ms-flexbox;
   display: flex;
   width: 300px;
-  overflow: hidden;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  height: 150px;
+  overflow: hidden;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-#airplane > .bottom > .diamondBox > .diamondBoxList > img {
+#airplane > .bottom > .diamondBox > .diamondBoxList > img.diamondBtn {
   width: 100px;
-  cursor: pointer;
   -webkit-transition: .5s;
   transition: .5s;
+  cursor: pointer;
 }
 
 #airplane > .bottom > .perbetBox {
@@ -1140,15 +1175,12 @@ nav#nav > a:hover {
 }
 
 #airplane > .bottom > .perbetBox > img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 200px;
 }
 
 #airplane > .bottom > .perbetBox > .dollar {
   position: absolute;
-  top: 52%;
+  bottom: 5px;
   left: 50%;
   color: #fff;
   font-size: 18px;

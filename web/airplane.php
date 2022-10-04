@@ -37,7 +37,7 @@ if(isset($_SESSION['name'])){
                     <img src="../images/airplane/fps.png">
                     <h3>90ms</h3>
                 </div>
-                <i class="fas fa-bars"></i>
+                <i class="fas fa-bars" id="bar"></i>
            </div>
         </div>
         <div class="center">
@@ -53,7 +53,14 @@ if(isset($_SESSION['name'])){
                     <?php } ?>
                     <div></div>
                 </div>
-                <div class="airRnakList" id="airRnakList"></div>
+                <div class="airRnakList" id="airRnakList">
+                    <div>
+                        <p>00:<span id="countdown">00</span></p>
+                    </div>
+                    <div id="airTrend"></div>
+                </div>
+                <div class="airTopThree" id="airTopThree"></div>
+                <div class="airTopTen" id="airTopTen"></div>
                 
             </div>
             <div class="betBox">
@@ -81,10 +88,9 @@ if(isset($_SESSION['name'])){
                     <div class="airplaneRankBox" id="airplaneRankBox">
                         <?php for($i=1;$i<=10;$i++){ ?>
                         <!-- <div class="rank no<?php echo $i; ?>" id="airRank"> -->
-                        <div class="rank no<?php echo $i; ?>" onclick="airplaneRankFn(<?php echo $i; ?>)">
-                            <!-- <img src="../images/airplane/medal<?php echo $i; ?>.png" class="medal"> -->
-                            <!-- <img src="../images/airplane/medal1.png" class="medal"> -->
-                            <img src="../images/airplane/air<?php echo $i; ?>.png" class="air">
+                        <div class="rank no<?php echo $i; ?>">
+                            <img src="" class="smallDiamond">
+                            <img src="../images/airplane/air<?php echo $i; ?>.png" class="air betAir" alt="<?php echo $i; ?>">
                         </div>
                         <?php } ?>
                     </div>
