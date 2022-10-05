@@ -59,8 +59,14 @@ if(isset($_SESSION['name'])){
                     </div>
                     <div id="airTrend"></div>
                 </div>
-                <div class="airTopThree" id="airTopThree"></div>
-                <div class="airTopTen" id="airTopTen"></div>
+                <div class="airTopThree" id="airTopThree">
+                    <p>第一名:</p>
+                    <p>第二名:</p>
+                    <p>第三名:</p>
+                </div>
+                <div class="airTopTen" id="airTopTen">
+                    前十名
+                </div>
                 
             </div>
             <div class="betBox">
@@ -82,7 +88,7 @@ if(isset($_SESSION['name'])){
                     <span class="odds">猜每一個名次的稱號 賠率9.8</span>
                     <div class="rankBtnBox" id="rankBtnBox">
                         <?php for($i=1;$i<=10;$i++){ ?>
-                            <img src="../images/airplane/no<?php echo $i;?>.png" id="rankingImg<?php echo $i; ?>" class="rankingImg" onclick="toggleRankingFn(<?php echo $i;?>)">
+                            <img src="../images/airplane/no<?php echo $i;?>.png" id="rankingImg<?php echo $i; ?>" class="rankingImg clickAudio" onclick="toggleRankingFn(<?php echo $i;?>)">
                         <?php } ?>
                     </div>
                     <div class="airplaneRankBox" id="airplaneRankBox">
@@ -90,7 +96,7 @@ if(isset($_SESSION['name'])){
                         <!-- <div class="rank no<?php echo $i; ?>" id="airRank"> -->
                         <div class="rank no<?php echo $i; ?>">
                             <img src="" class="smallDiamond">
-                            <img src="../images/airplane/air<?php echo $i; ?>.png" class="air betAir" alt="<?php echo $i; ?>">
+                            <img src="../images/airplane/air<?php echo $i; ?>.png" class="air betAir clickAudio" alt="<?php echo $i; ?>">
                         </div>
                         <?php } ?>
                     </div>

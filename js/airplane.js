@@ -21,6 +21,7 @@ const hiddenRadioRank = document.getElementById('hiddenRadioRank');
 const diamondBoxLeft = document.getElementById('diamondBoxLeft');
 const diamondBoxRight = document.getElementById('diamondBoxRight');
 const bar = document.getElementById('bar'); 
+const clickAudio = document.getElementsByClassName('clickAudio')
 let addMoney = 0;
 let minusMoney = 0;
 let totalMoney = 0;
@@ -40,6 +41,7 @@ let chooseRanking = 1;
 document.getElementById(`rankingImg${chooseRanking}`).src = `../images/airplane/no${chooseRanking}chk.png`;
 let guessAir = 0;
 let champion = 0;
+let countdownNumber = 0;
 let secondsArr = [
     [10,'1'],
     [10.1,'2'],
@@ -55,9 +57,13 @@ let secondsArr = [
 let ansObj = {
     no1:"",no2:"",no3:"",no4:"",no5:"",no6:"",no7:"",no8:"",no9:"",no10:""
 }
+let beforeAnsObj = {
+    no1:"",no2:"",no3:"",no4:"",no5:"",no6:"",no7:"",no8:"",no9:"",no10:""
+}
 let betMoney = 0;
 let totalBetMoney = 0;
 let html = '';
+let tenHtml = "";
 shuffleArray(secondsArr);
 // setInterval(()=>{
 //     console.log('10s過去了');
@@ -81,46 +87,128 @@ function shuffleArray(secondsArr){
     
     console.log("答案:",champion);
 }
-
-var id =setInterval(function () {
-    if (new Date().getSeconds()==0){   //myDate.getHours();    //獲取當前小時數(0-23) 
-        console.log('當前是',new Date().getMinutes())
+function initGuessAirArray(){
+    guessAirArray = {
+        no1:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+        no2:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+        no3:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+        no4:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+        no5:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+        no6:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+        no7:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+        no8:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+        no9:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+        no10:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
+    }
+}
+timeMethod();
+startMethod();
+function startMethod(){
+    // for(let j=1;j<=10;j++){
+    //     html += `<p class='p${secondsArr[j-1][1]}'> ${j} </p>`;
+    // }
+    airTrend.innerHTML = html;
+    if(new Date().getSeconds() < 11){
         airRnakList.style.opacity = 0;
+        airTopThree.style.opacity = 0;
+        airTopTen.style.opacity = 0;
         playBoxBg.classList.add('start');
-        html = "";
-        for(let j=1;j<=10;j++){
-            html += `<p class='p${secondsArr[j-1][1]}'> ${j} </p>`;
+        
+        playBoxBg.style.animationDelay =  `-${ new Date().getSeconds()}s`;
+        
+        for(let i = 0;i<=air.length;i++){
+            // air[i].classList.add(`air${i+1}`);
+            air[i].style.animation = `airNo1 ${secondsArr[i][0]}s linear`;
+            air[i].style.animationDelay = `-${ new Date().getSeconds()}s`;
+            setTimeout(()=>{
+                air[i].style.opacity = 0;
+                var id =setInterval(timeMethod,1000,id);
+                playBoxBg.style.animationDelay = '0s';
+                // air[i].style.zIndex = -999;
+            }, secondsArr[i][0]*1000 - (new Date().getSeconds() * 1000))
         }
+    }else{
+        var id =setInterval(timeMethod,1000,id);
+    }
+}
+// var id =setInterval(timeMethod,1000,id);
+function timeMethod(){
+    countdownNumber = 60 - new Date().getSeconds();
+    if(countdownNumber < 10){
+        countdown.innerHTML = '0' + countdownNumber; 
+    }else{
+        if(countdownNumber == 60){
+            countdown.innerHTML = '00'
+        }else{
+            countdown.innerHTML = countdownNumber;
+        }
+    }
+    if(new Date().getSeconds()==0){
+        chkBtn.addEventListener('click',chkBtnFn);
+    }
+    if (new Date().getSeconds()==1){ 
+        //myDate.getHours();    //獲取當前小時數(0-23) 
+        // console.log('當前是',new Date().getMinutes())
+        airRnakList.style.opacity = 0;
+        airTopThree.style.opacity = 0;
+        airTopTen.style.opacity = 0;
+        tenHtml = "";
+        betMoney = 0;
+        dollar.innerHTML = betMoney;
+        playBoxBg.classList.add('start');
+        // for(let j=1;j<=10;j++){
+        //     html += `<p class='p${secondsArr[j-1][1]}'> ${j} </p>`;
+        // }
         for(let i = 0;i<=air.length;i++){
             // air[i].classList.add(`air${i+1}`);
             air[i].style.animation = `airNo1 ${secondsArr[i][0]}s linear`;
             // animation: airNo1 8.2s linear;
             setTimeout(()=>{
                 air[i].style.opacity = 0;
-                // air[i].style.zIndex = -999;
             },secondsArr[i][0]*1000)
         }
         // clearInterval(id)
     }
+    if(new Date().getSeconds()==2){
+        shuffleArray(secondsArr);
+    }
     if(new Date().getSeconds()==11){
-        airRnakList.innerHTML = "";
-        airRnakList.innerHTML = html;
+        airRnakList.style.opacity = 0;
+        airTopThree.style.opacity = 1;
+        airTopTen.style.opacity = 0;
+        airTopThree.innerHTML = `<p>第一名:${beforeAnsObj.no1}</p><p>第二名:${beforeAnsObj.no2}</p><p>第三名:${beforeAnsObj.no3}</p>`
+    }
+    if(new Date().getSeconds()==14){
+        airRnakList.style.opacity = 0;
+        airTopThree.style.opacity = 0;
+        airTopTen.style.opacity = 1;
+        
+        for(let i=1;i<=10;i++){
+            tenHtml = tenHtml + beforeAnsObj['no'+i] + ',';
+        }
+        // console.log('tenHtml =>' , tenHtml);
+        
+        airTopTen.innerHTML = tenHtml ;
+    }
+    if(new Date().getSeconds()==18){
+        airTopThree.style.opacity = 0;
+        airTopTen.style.opacity = 0;
+        airTrend.innerHTML = "";
+        airTrend.innerHTML = tenHtml;
+
+        airTopThree.style.opacity = 0;
+        airTopTen.style.opacity = 0;
         airRnakList.style.opacity = 1;
     }
-    if(new Date().getSeconds()==12){
-        betMoney = 0;
-        dollar.innerHTML = betMoney;
-        guessAir = 0;
+    if(new Date().getSeconds()==19){
         hiddenRadioRank.checked = false;
-        
     }
-    if(new Date().getSeconds()==15){
+    if(new Date().getSeconds()==20){
         // console.log('當前是',new Date().getMinutes())
         playBoxBg.classList.remove('start');
-        shuffleArray(secondsArr);
+        // shuffleArray(secondsArr);
         for(let i=0;i<=air.length;i++){
             air[i].style.opacity = 1;
-            // air[i].style.zIndex = 1;
         }
        
     }
@@ -130,18 +218,27 @@ var id =setInterval(function () {
             air[i].style.opacity = 1;
         }
     }
-    if(new Date().getSeconds() <=13 || new Date().getSeconds()==59){
-        chkBtn.style.opacity = .5;
+    if(new Date().getSeconds()== 55){
+        // beforeAnsObj
+        for(let c=1;c<=10;c++){
+            if(secondsArr[c-1][1] == '1'){ beforeAnsObj.no1 = c; }
+            if(secondsArr[c-1][1] == '2'){ beforeAnsObj.no2 = c; }
+            if(secondsArr[c-1][1] == '3'){ beforeAnsObj.no3 = c; }
+            if(secondsArr[c-1][1] == '4'){ beforeAnsObj.no4 = c; }
+            if(secondsArr[c-1][1] == '5'){ beforeAnsObj.no5 = c; }
+            if(secondsArr[c-1][1] == '6'){ beforeAnsObj.no6 = c; }
+            if(secondsArr[c-1][1] == '7'){ beforeAnsObj.no7 = c; }
+            if(secondsArr[c-1][1] == '8'){ beforeAnsObj.no8 = c; }
+            if(secondsArr[c-1][1] == '9'){ beforeAnsObj.no9 = c; }
+            if(secondsArr[c-1][1] == '10'){ beforeAnsObj.no10 = c;}
+        }
+        
     }
-    if(new Date().getSeconds() > 13){
-        chkBtn.style.opacity = 1;
-    }
-},1000,id)
+}
 
 
-
-
-chkBtn.addEventListener('click',()=>{
+chkBtn.addEventListener('click',chkBtnFn);
+function chkBtnFn(){
     if(betMoney<=0){
         alert('您的下注金額為0,請先下注!');
         return;
@@ -155,6 +252,8 @@ chkBtn.addEventListener('click',()=>{
     
     if(chk){
         let differ = (60 - new Date().getSeconds() + 11)*1000;
+        addMoney = 0;
+        
         console.log(differ);
         for(let i=1;i<=10;i++){
             for(let j=1;j<=10;j++){
@@ -178,21 +277,14 @@ chkBtn.addEventListener('click',()=>{
                 console.log(res);
             })
         }, differ)
-        
+        initGuessAirArray();
+        chkBtn.removeEventListener('click',chkBtnFn);
         return;
     }
-})
-
+}
 const diamondFn = (e)=>{
-    // if(myMoney.value<Number(e.target.alt)){
-    //     alert('您的餘額為不足，請先儲值')
-    //     return;
-    // }
-   
     betMoney =  Number(e.target.alt);
     dollar.innerHTML = betMoney;
-    // myMoney.value = Number(myMoney.value) - betMoney;
-    // balance.innerHTML = myMoney.value
 }
 
 for(let i=0;i<diamondBtn.length;i++){
@@ -329,3 +421,10 @@ function betFn(e){
 bar.addEventListener('click',()=>{
     console.log(guessAirArray);
 })
+const audio = new Audio();
+audio.src = "./click.mp3";
+for(let a=0;a<clickAudio.length;a++){
+    clickAudio[a].addEventListener('click',()=>{
+        audio.play();
+    })
+}
