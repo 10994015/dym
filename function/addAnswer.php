@@ -8,7 +8,7 @@ date_default_timezone_set('Asia/Taipei');
 // $vids = date("Y");
 // $month = date("m");
 echo date("h");
-if(isset($_POST['add']) && $_POST['add'] == "yes"){
+if(isset($_GET['add']) && $_GET['add'] == "yes"){
     
     $date = date("d",);
     $year = date("y");
@@ -18,9 +18,9 @@ if(isset($_POST['add']) && $_POST['add'] == "yes"){
     $hour = intval(date('H'));
     // $number = "SR9359".$year.$month.$date."1030";
     $overt = 0;
-    $nowTime = date("H");
+    $nowTime = date("H", strtotime("+2 hour"));
     
-    $twoHour = date("H", strtotime("+2 hour"));
+    $twoHour = date("H", strtotime("+4 hour"));
     $datenumber = $vids.$month.$date."-".$nowTime."-".$twoHour;
     $minuteStr = "";
     $hourStr = "";

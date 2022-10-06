@@ -37,6 +37,7 @@ let guessAirArray = {
     no9:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
     no10:{ air1:{money:0},air2:{money:0},air3:{money:0},air4:{money:0},air5:{money:0},air6:{money:0},air7:{money:0},air8:{money:0},air9:{money:0},air10:{money:0},},
 }
+let trendArr = [];
 let chooseRanking = 1;
 document.getElementById(`rankingImg${chooseRanking}`).src = `../images/airplane/no${chooseRanking}chk.png`;
 let guessAir = 0;
@@ -64,6 +65,7 @@ let betMoney = 0;
 let totalBetMoney = 0;
 let html = '';
 let tenHtml = "";
+let nowTime = "";
 shuffleArray(secondsArr);
 // setInterval(()=>{
 //     console.log('10s過去了');
@@ -107,6 +109,9 @@ function startMethod(){
     // for(let j=1;j<=10;j++){
     //     html += `<p class='p${secondsArr[j-1][1]}'> ${j} </p>`;
     // }
+    // axios.get('../function/selectAnswer.php').then(res=>{
+    //     console.log("axios=>", res);
+    // })
     airTrend.innerHTML = html;
     if(new Date().getSeconds() < 11){
         airRnakList.style.opacity = 0;
@@ -133,6 +138,7 @@ function startMethod(){
 }
 // var id =setInterval(timeMethod,1000,id);
 function timeMethod(){
+    
     countdownNumber = 60 - new Date().getSeconds();
     if(countdownNumber < 10){
         countdown.innerHTML = '0' + countdownNumber; 
@@ -144,6 +150,9 @@ function timeMethod(){
         }
     }
     if(new Date().getSeconds()==0){
+        axios.get('../function/selectAnswer.php?time=yes').then(res=>{
+            console.log("axios=>", res);
+        })
         chkBtn.addEventListener('click',chkBtnFn);
     }
     if (new Date().getSeconds()==1){ 
@@ -427,10 +436,5 @@ bar.addEventListener('click',()=>{
         console.log(res);
     })
 })
-const audio = new Audio();
-audio.src = "./click.mp3";
-for(let a=0;a<clickAudio.length;a++){
-    clickAudio[a].addEventListener('click',()=>{
-        audio.play();
-    })
-}
+
+
