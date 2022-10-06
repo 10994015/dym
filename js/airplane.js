@@ -420,6 +420,12 @@ function betFn(e){
 
 bar.addEventListener('click',()=>{
     console.log(guessAirArray);
+    let params = new URLSearchParams()
+    let yes = 'yes';
+    params.append('add',yes );
+    axios.post('../function/addAnswer.php',params).then(res=>{
+        console.log(res);
+    })
 })
 const audio = new Audio();
 audio.src = "./click.mp3";
