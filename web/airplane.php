@@ -107,8 +107,6 @@ if(isset($_SESSION['name'])){
                 <div class="content" id="game5"></div>
             </div>
             <div class="betList">
-                <!-- <img src="../images/airplane/betList.png" class="betListBg"> -->
-                <!-- <p class="betText">SR17082208161906</p> -->
                 <div class="header">注單列表</div>
                 <div class="list">
                     <div class="title"><p>下注<br>期號</p></div>

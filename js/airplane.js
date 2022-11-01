@@ -122,7 +122,6 @@ function startMethod(){
         playBoxBg.style.animationDelay =  `-${ new Date().getSeconds()}s`;
         
         for(let i = 0;i<=air.length;i++){
-            // air[i].classList.add(`air${i+1}`);
             air[i].style.animation = `airNo1 ${secondsArr[i][0]}s linear`;
             air[i].style.animationDelay = `-${ new Date().getSeconds()}s`;
             setTimeout(()=>{
@@ -219,7 +218,6 @@ function timeMethod(){
         for(let i=0;i<=air.length;i++){
             air[i].style.opacity = 1;
         }
-       
     }
     if(new Date().getSeconds()==30){
         for(let i = 0;i<=air.length;i++){
